@@ -1,0 +1,293 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dnd-cards.local/schema/npc.schema.json",
+  "title": "Карточка NPC",
+  "description": "NPC, построенный по классам (возможно, мультикласс). Правило: вы выбираете и придумываете, приложение считает. НЕ указывайте модификаторы, бонус мастерства, КД, максимум хитов, бонусы навыков и спасбросков, бонусы атак, Сл заклинаний, ячейки заклинаний, пассивную внимательность: всё это приложение посчитает из классов, уровней, характеристик, снаряжения и списка заклинаний. В тексте особенностей можно использовать подстановки {prof} (бонус мастерства), {mod.str}…{mod.cha} (модификаторы) и {level.fighter} (уровень класса): приложение подставит числа.",
+  "type": "object",
+  "required": [
+    "schema_version", "ruleset", "kind", "name", "race", "classes", "abilities", "source"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "$ref": "common.schema.json#/$defs/schema_version" },
+    "ruleset": { "$ref": "common.schema.json#/$defs/ruleset" },
+    "kind": { "const": "npc" },
+    "name": { "$ref": "common.schema.json#/$defs/text" },
+    "race": {
+      "type": "object",
+      "required": ["name"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "$ref": "common.schema.json#/$defs/text", "description": "Раса, например «Человек» или «Горный дварф»." },
+        "size": { "enum": ["small", "medium"], "default": "medium", "description": "Размер. По умолчанию medium." }
+      }
+    },
+    "background": { "$ref": "common.schema.json#/$defs/text", "description": "Название предыстории, например «Солдат»." },
+    "alignment": { "$ref": "common.schema.json#/$defs/text" },
+    "role": { "$ref": "common.schema.json#/$defs/text", "description": "Роль в сюжете в двух-трёх словах, например «телохранитель»." },
+    "classes": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 4,
+      "description": "Классы и уровни. Первый в списке считается стартовым: от него берутся кость хитов первого уровня и владения спасбросками. Общий уровень равен сумме уровней.",
+      "items": {
+        "type": "object",
+        "required": ["class", "level"],
+        "additionalProperties": false,
+        "properties": {
+          "class": {
+            "enum": ["barbarian", "bard", "cleric", "druid", "fighter", "monk", "paladin", "ranger", "rogue", "sorcerer", "warlock", "wizard"],
+            "description": "Класс: barbarian варвар, bard бард, cleric жрец, druid друид, fighter воин, monk монах, paladin паладин, ranger следопыт, rogue плут, sorcerer чародей, warlock колдун, wizard волшебник."
+          },
+          "subclass": { "$ref": "common.schema.json#/$defs/text", "description": "Подкласс по-русски, например «Чемпион». Опустить, если ещё не выбран." },
+          "level": { "type": "integer", "minimum": 1, "maximum": 20 }
+        }
+      }
+    },
+    "abilities": { "$ref": "common.schema.json#/$defs/ability_scores" },
+    "speed": { "$ref": "common.schema.json#/$defs/speed", "description": "Скорости. Если опущено, ходьба 30." },
+    "hit_points": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "override": { "type": "integer", "minimum": 1, "description": "Задать максимум хитов вручную. Иначе приложение считает по средним значениям костей хитов и Телосложению." }
+      }
+    },
+    "defense": {
+      "type": "object",
+      "description": "Из чего складывается КД. Итоговое значение приложение считает само.",
+      "additionalProperties": false,
+      "properties": {
+        "armor": {
+          "type": "object",
+          "required": ["name", "base"],
+          "additionalProperties": false,
+          "properties": {
+            "name": { "$ref": "common.schema.json#/$defs/text" },
+            "base": { "type": "integer", "minimum": 10, "maximum": 20, "description": "Базовый КД доспеха: кожаный 11, кольчуга 16, латы 18." },
+            "dex": { "enum": ["full", "max_2", "none"], "description": "Как добавляется модификатор Ловкости: full легкий доспех, max_2 средний (не более +2), none тяжёлый." },
+            "magic_bonus": { "type": "integer", "minimum": 0, "maximum": 3 }
+          }
+        },
+        "shield": { "type": "boolean", "description": "true: носит щит (+2)." },
+        "other_bonus": { "type": "integer", "description": "Прочие бонусы к КД: боевой стиль, кольцо." },
+        "override": {
+          "type": "object",
+          "required": ["value"],
+          "additionalProperties": false,
+          "description": "Заменяет расчёт, если КД считается особой формулой (защита без доспехов, доспех мага).",
+          "properties": {
+            "value": { "type": "integer", "minimum": 1, "maximum": 30 },
+            "note": { "$ref": "common.schema.json#/$defs/text" }
+          }
+        }
+      }
+    },
+    "skill_proficiencies": {
+      "type": "array",
+      "description": "Итоговый список навыков с мастерством (из класса, предыстории, расы). Помните: при мультиклассировании в большинство классов навыки не даются.",
+      "items": { "$ref": "common.schema.json#/$defs/skill_proficiency" }
+    },
+    "save_proficiencies": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "$ref": "common.schema.json#/$defs/ability" },
+      "description": "Задать мастерство в спасбросках вручную. Если опущено, берётся от стартового класса."
+    },
+    "proficiencies": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "armor": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/text" } },
+        "weapons": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/text" } },
+        "tools": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/text" } }
+      }
+    },
+    "languages": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/text" } },
+    "weapons": {
+      "type": "array",
+      "description": "Оружие. Из него приложение строит строки атак: бонус попадания и урон считаются само.",
+      "items": {
+        "type": "object",
+        "required": ["name", "damage", "melee"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "$ref": "common.schema.json#/$defs/text" },
+          "melee": { "type": "boolean", "description": "true: рукопашное, false: дальнобойное." },
+          "damage": {
+            "type": "object",
+            "required": ["dice", "type"],
+            "additionalProperties": false,
+            "properties": {
+              "dice": { "$ref": "common.schema.json#/$defs/dice" },
+              "type": { "$ref": "common.schema.json#/$defs/damage_type" }
+            }
+          },
+          "ability": { "$ref": "common.schema.json#/$defs/ability", "description": "Только для особого оружия: характеристика атаки вместо обычной (например Интеллект для «кинжала из чернил»). Для обычного оружия опустить." },
+          "versatile_dice": { "$ref": "common.schema.json#/$defs/dice", "description": "Кости при хвате двумя руками для универсального оружия." },
+          "properties": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": { "enum": ["ammunition", "finesse", "heavy", "light", "loading", "reach", "thrown", "two_handed", "versatile"] },
+            "description": "Свойства: ammunition боеприпасы, finesse фехтовальное, heavy тяжёлое, light лёгкое, loading перезарядка, reach досягаемость, thrown метательное, two_handed двуручное, versatile универсальное."
+          },
+          "range_normal": { "type": "integer", "minimum": 5 },
+          "range_long": { "type": "integer", "minimum": 5 },
+          "magic_bonus": { "type": "integer", "minimum": 0, "maximum": 3 },
+          "damage_bonus": { "type": "integer", "description": "Дополнительная добавка к урону, например +2 от боевого стиля «Дуэлянт»." },
+          "crit_range": { "type": "integer", "minimum": 18, "maximum": 20, "description": "С какого значения кости критическое попадание. По умолчанию 20; 19 для чемпиона." },
+          "proficient": { "type": "boolean", "default": true },
+          "note": { "$ref": "common.schema.json#/$defs/text", "description": "Короткая пометка для строки атаки." },
+          "source": { "$ref": "common.schema.json#/$defs/source" }
+        }
+      }
+    },
+    "features": {
+      "type": "array",
+      "description": "Умения и способности: классовые, расовые, из предыстории, черты.",
+      "items": {
+        "type": "object",
+        "required": ["name", "text", "origin"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "$ref": "common.schema.json#/$defs/text" },
+          "text": { "$ref": "common.schema.json#/$defs/text", "description": "Краткое описание в одну-две фразы. Числа лучше писать подстановками: {prof}, {mod.int}, {level.fighter}." },
+          "origin": {
+            "type": "object",
+            "required": ["type"],
+            "additionalProperties": false,
+            "description": "Откуда умение. Для карточки это метка источника.",
+            "properties": {
+              "type": { "enum": ["class", "race", "background", "feat", "item", "other"] },
+              "class": {
+                "enum": ["barbarian", "bard", "cleric", "druid", "fighter", "monk", "paladin", "ranger", "rogue", "sorcerer", "warlock", "wizard"],
+                "description": "Для origin.type = class: из какого класса."
+              },
+              "level": { "type": "integer", "minimum": 1, "maximum": 20, "description": "Уровень класса, на котором умение получено." }
+            },
+            "if": { "properties": { "type": { "const": "class" } }, "required": ["type"] },
+            "then": { "required": ["class"] }
+          },
+          "usage": { "$ref": "common.schema.json#/$defs/usage" },
+          "source": { "$ref": "common.schema.json#/$defs/source" }
+        }
+      }
+    },
+    "spellcasting": {
+      "type": "array",
+      "description": "Колдовство по классам. Ячейки заклинаний, Сл и бонус атаки приложение считает само (при мультиклассировании по общей таблице).",
+      "items": {
+        "type": "object",
+        "required": ["class", "spells"],
+        "additionalProperties": false,
+        "properties": {
+          "class": {
+            "enum": ["bard", "cleric", "druid", "fighter", "paladin", "ranger", "rogue", "sorcerer", "warlock", "wizard"],
+            "description": "Класс-заклинатель. fighter и rogue допустимы для подклассов (Мистический рыцарь, Мистический ловкач)."
+          },
+          "ability": { "$ref": "common.schema.json#/$defs/ability", "description": "Характеристика колдовства. Если опущено, берётся стандартная для класса." },
+          "spells": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["name", "level", "source"],
+              "additionalProperties": false,
+              "properties": {
+                "name": { "$ref": "common.schema.json#/$defs/text" },
+                "name_en": { "type": "string", "minLength": 1, "description": "Английское название. Нужно для сверки со справочником." },
+                "level": { "type": "integer", "minimum": 0, "maximum": 9, "description": "0 — заговор." },
+                "school": { "$ref": "common.schema.json#/$defs/text" },
+                "prepared": { "type": "boolean", "default": true, "description": "false: заклинание только в книге заклинаний и не подготовлено. Для заговоров и известных заклинаний не указывать." },
+                "ritual": { "type": "boolean" },
+                "concentration": { "type": "boolean" },
+                "attack": {
+                  "type": "object",
+                  "required": ["attack_type", "damage"],
+                  "additionalProperties": false,
+                  "description": "Если заклинание наносит урон броском атаки (Огненный снаряд, Луч холода).",
+                  "properties": {
+                    "attack_type": { "enum": ["melee_spell", "ranged_spell"] },
+                    "range": { "type": "integer", "minimum": 5 },
+                    "damage": { "type": "array", "minItems": 1, "items": { "$ref": "common.schema.json#/$defs/damage_part" } }
+                  }
+                },
+                "source": { "$ref": "common.schema.json#/$defs/source" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "equipment": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name"],
+            "additionalProperties": false,
+            "properties": {
+              "name": { "$ref": "common.schema.json#/$defs/text" },
+              "quantity": { "type": "integer", "minimum": 1 },
+              "note": { "$ref": "common.schema.json#/$defs/text" },
+              "magic": { "type": "boolean", "description": "true: магический или особый предмет; для листа персонажа попадает в блок «Сокровища»." },
+              "description": { "$ref": "common.schema.json#/$defs/text", "description": "Описание свойств предмета. Для магических и особых предметов." }
+            }
+          }
+        },
+        "currency": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "cp": { "type": "integer", "minimum": 0 },
+            "sp": { "type": "integer", "minimum": 0 },
+            "ep": { "type": "integer", "minimum": 0 },
+            "gp": { "type": "integer", "minimum": 0 },
+            "pp": { "type": "integer", "minimum": 0 }
+          }
+        }
+      }
+    },
+    "roleplay": {
+      "type": "object",
+      "description": "Блок «Как отыгрывать». Короткие фразы.",
+      "additionalProperties": false,
+      "properties": {
+        "speech": { "$ref": "common.schema.json#/$defs/text", "description": "Манера речи." },
+        "wants": { "$ref": "common.schema.json#/$defs/text", "description": "Чего хочет." },
+        "hides": { "$ref": "common.schema.json#/$defs/text", "description": "Что скрывает." },
+        "in_combat": { "$ref": "common.schema.json#/$defs/text", "description": "Как ведёт себя в бою." }
+      }
+    },
+    "personality": {
+      "type": "object",
+      "description": "Необязательные поля для проработанных персонажей. У рядового NPC можно опустить целиком.",
+      "additionalProperties": false,
+      "properties": {
+        "appearance": { "$ref": "common.schema.json#/$defs/text" },
+        "traits": { "$ref": "common.schema.json#/$defs/text" },
+        "ideals": { "$ref": "common.schema.json#/$defs/text" },
+        "bonds": { "$ref": "common.schema.json#/$defs/text" },
+        "flaws": { "$ref": "common.schema.json#/$defs/text" },
+        "backstory": { "$ref": "common.schema.json#/$defs/text" },
+        "goals": { "$ref": "common.schema.json#/$defs/text" },
+        "relationships": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "relation"],
+            "additionalProperties": false,
+            "properties": {
+              "name": { "$ref": "common.schema.json#/$defs/text" },
+              "relation": { "$ref": "common.schema.json#/$defs/text" }
+            }
+          }
+        }
+      }
+    },
+    "dm_notes": { "$ref": "common.schema.json#/$defs/dm_notes" },
+    "source": { "$ref": "common.schema.json#/$defs/source", "description": "Откуда NPC целиком: official или custom." }
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "schema_version": "1.0",
+  "ruleset": "dnd5e-2014",
+  "kind": "npc",
+  "name": "Эльдрик Вейн",
+  "race": { "name": "Человек" },
+  "background": "Солдат",
+  "alignment": "законно-нейтральный",
+  "role": "телохранитель",
+  "classes": [
+    { "class": "fighter", "subclass": "Чемпион", "level": 3 },
+    { "class": "wizard", "level": 2 }
+  ],
+  "abilities": { "str": 15, "dex": 14, "con": 14, "int": 14, "wis": 10, "cha": 8 },
+  "speed": { "walk": 30 },
+  "defense": {
+    "armor": { "name": "Кольчуга", "base": 16, "dex": "none" },
+    "shield": true
+  },
+  "skill_proficiencies": [
+    { "skill": "athletics" },
+    { "skill": "intimidation" },
+    { "skill": "perception" },
+    { "skill": "history" }
+  ],
+  "proficiencies": {
+    "armor": ["все доспехи", "щиты"],
+    "weapons": ["простое", "воинское"],
+    "tools": ["игральные кости", "наземный транспорт"]
+  },
+  "languages": ["общий", "эльфийский"],
+  "weapons": [
+    {
+      "name": "Длинный меч",
+      "melee": true,
+      "damage": { "dice": "1d8", "type": "slashing" },
+      "versatile_dice": "1d10",
+      "properties": ["versatile"],
+      "damage_bonus": 2,
+      "crit_range": 19,
+      "note": "Дуэлянт; крит. на 19–20",
+      "source": { "type": "official", "book": "SRD 5.1" }
+    },
+    {
+      "name": "Лёгкий арбалет",
+      "melee": false,
+      "damage": { "dice": "1d8", "type": "piercing" },
+      "properties": ["ammunition", "loading", "two_handed"],
+      "range_normal": 80,
+      "range_long": 320,
+      "crit_range": 19,
+      "source": { "type": "official", "book": "SRD 5.1" }
+    }
+  ],
+  "features": [
+    {
+      "name": "Боевой стиль: дуэлянт",
+      "text": "+2 к урону одноручным оружием, если вторая рука свободна или занята щитом.",
+      "origin": { "type": "class", "class": "fighter", "level": 1 },
+      "source": { "type": "official", "book": "SRD 5.1" }
+    },
+    {
+      "name": "Второе дыхание",
+      "text": "Бонусным действием восстанавливает 1d10+{level.fighter} хитов.",
+      "origin": { "type": "class", "class": "fighter", "level": 1 },
+      "usage": { "type": "per_rest", "times": 1, "rest": "short" },
+      "source": { "type": "official", "book": "SRD 5.1" }
+    },
+    {
+      "name": "Всплеск действий",
+      "text": "Один раз получает дополнительное действие в свой ход.",
+      "origin": { "type": "class", "class": "fighter", "level": 2 },
+      "usage": { "type": "per_rest", "times": 1, "rest": "short" },
+      "source": { "type": "official", "book": "SRD 5.1" }
+    },
+    {
+      "name": "Улучшенный критический удар",
+      "text": "Критическое попадание на 19–20.",
+      "origin": { "type": "class", "class": "fighter", "level": 3 },
+      "source": { "type": "official", "book": "SRD 5.1" }
+    },
+    {
+      "name": "Магическое восстановление",
+      "text": "После короткого отдыха возвращает ячейки суммарным уровнем до 1.",
+      "origin": { "type": "class", "class": "wizard", "level": 1 },
+      "usage": { "type": "per_rest", "times": 1, "rest": "long" },
+      "source": { "type": "official", "book": "SRD 5.1" }
+    }
+  ],
+  "spellcasting": [
+    {
+      "class": "wizard",
+      "spells": [
+        {
+          "name": "Огненный снаряд", "name_en": "Fire Bolt", "level": 0, "school": "воплощение",
+          "attack": {
+            "attack_type": "ranged_spell",
+            "range": 120,
+            "damage": [{ "dice": "1d10", "type": "fire", "scales_with_level": "cantrip" }]
+          },
+          "source": { "type": "official", "book": "SRD 5.1" }
+        },
+        { "name": "Волшебная рука", "name_en": "Mage Hand", "level": 0, "school": "колдовство", "source": { "type": "official", "book": "SRD 5.1" } },
+        { "name": "Свет", "name_en": "Light", "level": 0, "school": "воплощение", "source": { "type": "official", "book": "SRD 5.1" } },
+        { "name": "Щит", "name_en": "Shield", "level": 1, "school": "ограждение", "source": { "type": "official", "book": "SRD 5.1" } },
+        { "name": "Волшебная стрела", "name_en": "Magic Missile", "level": 1, "school": "воплощение", "source": { "type": "official", "book": "SRD 5.1" } },
+        { "name": "Усыпление", "name_en": "Sleep", "level": 1, "school": "очарование", "source": { "type": "official", "book": "SRD 5.1" } },
+        { "name": "Обнаружение магии", "name_en": "Detect Magic", "level": 1, "school": "прорицание", "ritual": true, "concentration": true, "source": { "type": "official", "book": "SRD 5.1" } },
+        { "name": "Огненные ладони", "name_en": "Burning Hands", "level": 1, "school": "воплощение", "prepared": false, "source": { "type": "official", "book": "SRD 5.1" } },
+        { "name": "Опознание", "name_en": "Identify", "level": 1, "school": "прорицание", "ritual": true, "prepared": false, "source": { "type": "official", "book": "SRD 5.1" } },
+        { "name": "Туманное облако", "name_en": "Fog Cloud", "level": 1, "school": "колдовство", "concentration": true, "prepared": false, "source": { "type": "official", "book": "SRD 5.1" } },
+        { "name": "Защита от добра и зла", "name_en": "Protection from Evil and Good", "level": 1, "school": "ограждение", "concentration": true, "prepared": false, "source": { "type": "official", "book": "SRD 5.1" } }
+      ]
+    }
+  ],
+  "equipment": {
+    "items": [
+      { "name": "Болты для арбалета", "quantity": 20 },
+      { "name": "Книга заклинаний" },
+      { "name": "Набор путешественника" }
+    ],
+    "currency": { "gp": 12, "sp": 8 }
+  },
+  "roleplay": {
+    "speech": "Короткие уставные фразы; в волнении переходит на «вы».",
+    "wants": "Вернуть честное имя после снятия с должности.",
+    "hides": "Видел, кто открыл ворота врагу, и молчит.",
+    "in_combat": "Держит строй со щитом, Щит колдует на отходе."
+  },
+  "dm_notes": [
+    { "kind": "other", "text": "Мультикласс воин 3 / волшебник 2: навыки волшебника при мультиклассировании не даются, поэтому «Магия» не владеет мастерством." }
+  ],
+  "source": { "type": "custom", "note": "придуманный NPC" }
+}

@@ -1,0 +1,1607 @@
+{
+ "_comment": "Заклинания SRD в каталоге Long Story Short, редакция 2014 (идентификаторы 65d3c1…). Собраны из сохранённых страниц каталога. Самодельные заклинания не включены: у каждого пользователя они свои. Названия: как в каталоге LSS.",
+ "edition": "2014",
+ "spells": [
+  {
+   "id": "65d3c170f3d820fa1add476e",
+   "name_ru": "Брызги кислоты",
+   "name_en": "Acid Splash",
+   "level": 0
+  },
+  {
+   "id": "65d3c16af3d820fa1add43a8",
+   "name_ru": "Волшебная рука",
+   "level": 0
+  },
+  {
+   "id": "65d3c16bf3d820fa1add4442",
+   "name_ru": "Дубинка",
+   "level": 0
+  },
+  {
+   "id": "65d3c16ef3d820fa1add4695",
+   "name_ru": "Злая насмешка",
+   "level": 0
+  },
+  {
+   "id": "65d3c16ff3d820fa1add46fe",
+   "name_ru": "Искусство друидов",
+   "name_en": "Druidcraft",
+   "level": 0
+  },
+  {
+   "id": "65d3c170f3d820fa1add4759",
+   "name_ru": "Леденящее прикосновение",
+   "level": 0
+  },
+  {
+   "id": "65d3c168f3d820fa1add420b",
+   "name_ru": "Луч холода",
+   "level": 0
+  },
+  {
+   "id": "65d3c169f3d820fa1add427b",
+   "name_ru": "Малая иллюзия",
+   "level": 0
+  },
+  {
+   "id": "65d3c174f3d820fa1add4951",
+   "name_ru": "Меткий удар",
+   "level": 0
+  },
+  {
+   "id": "65d3c175f3d820fa1add4997",
+   "name_ru": "Мистический заряд",
+   "level": 0
+  },
+  {
+   "id": "65d3c169f3d820fa1add429e",
+   "name_ru": "Огненный снаряд",
+   "level": 0
+  },
+  {
+   "id": "65d3c175f3d820fa1add499e",
+   "name_ru": "Пляшущие огоньки",
+   "level": 0
+  },
+  {
+   "id": "65d3c168f3d820fa1add425f",
+   "name_ru": "Починка",
+   "level": 0
+  },
+  {
+   "id": "65d3c173f3d820fa1add4919",
+   "name_ru": "Свет",
+   "level": 0
+  },
+  {
+   "id": "65d3c169f3d820fa1add42ac",
+   "name_ru": "Священное пламя",
+   "level": 0
+  },
+  {
+   "id": "65d3c16ff3d820fa1add46f0",
+   "name_ru": "Сообщение",
+   "level": 0
+  },
+  {
+   "id": "65d3c172f3d820fa1add488d",
+   "name_ru": "Сопротивление",
+   "level": 0
+  },
+  {
+   "id": "65d3c16bf3d820fa1add4457",
+   "name_ru": "Сотворение пламени",
+   "level": 0
+  },
+  {
+   "id": "65d3c168f3d820fa1add41ef",
+   "name_ru": "Указание",
+   "level": 0
+  },
+  {
+   "id": "65d3c173f3d820fa1add4912",
+   "name_ru": "Уход за умирающим",
+   "level": 0
+  },
+  {
+   "id": "65d3c174f3d820fa1add4958",
+   "name_ru": "Фокусы",
+   "name_en": "Prestidigitation",
+   "level": 0
+  },
+  {
+   "id": "65d3c171f3d820fa1add482b",
+   "name_ru": "Чудотворство",
+   "level": 0
+  },
+  {
+   "id": "65d3c168f3d820fa1add41f6",
+   "name_ru": "Электрошок",
+   "level": 0
+  },
+  {
+   "id": "65d3c169f3d820fa1add42d6",
+   "name_ru": "Ядовитые брызги",
+   "level": 0
+  },
+  {
+   "id": "65d3c16cf3d820fa1add44c7",
+   "name_ru": "Адское возмездие",
+   "level": 1
+  },
+  {
+   "id": "65d3c16af3d820fa1add438c",
+   "name_ru": "Безмолвный образ",
+   "level": 1
+  },
+  {
+   "id": "65d3c16df3d820fa1add45d1",
+   "name_ru": "Благословение",
+   "level": 1
+  },
+  {
+   "id": "65d3c174f3d820fa1add497b",
+   "name_ru": "Божественное благоволение",
+   "level": 1
+  },
+  {
+   "id": "65d3c16ff3d820fa1add46e9",
+   "name_ru": "Волна грома",
+   "level": 1
+  },
+  {
+   "id": "65d3c16bf3d820fa1add446c",
+   "name_ru": "Волшебная стрела",
+   "name_en": "Magic Missile",
+   "level": 1
+  },
+  {
+   "id": "65d3c175f3d820fa1add49cf",
+   "name_ru": "Героизм",
+   "level": 1
+  },
+  {
+   "id": "65d3c16af3d820fa1add434d",
+   "name_ru": "Доспехи мага",
+   "level": 1
+  },
+  {
+   "id": "65d3c16df3d820fa1add45b5",
+   "name_ru": "Дружба с животными",
+   "level": 1
+  },
+  {
+   "id": "65d3c176f3d820fa1add49f2",
+   "name_ru": "Жуткий смех",
+   "level": 1
+  },
+  {
+   "id": "65d3c168f3d820fa1add422e",
+   "name_ru": "Защита от добра и зла",
+   "level": 1
+  },
+  {
+   "id": "65d3c175f3d820fa1add49b3",
+   "name_ru": "Лечащее слово",
+   "level": 1
+  },
+  {
+   "id": "65d3c172f3d820fa1add4871",
+   "name_ru": "Лечение ран",
+   "level": 1
+  },
+  {
+   "id": "65d3c16af3d820fa1add4377",
+   "name_ru": "Маскировка",
+   "level": 1
+  },
+  {
+   "id": "65d3c170f3d820fa1add474b",
+   "name_ru": "Метка охотника",
+   "level": 1
+  },
+  {
+   "id": "65d3c16af3d820fa1add42f9",
+   "name_ru": "Нанесение ран",
+   "name_en": "Inflict Wounds",
+   "level": 1
+  },
+  {
+   "id": "65d3c174f3d820fa1add495f",
+   "name_ru": "Направленный снаряд",
+   "level": 1
+  },
+  {
+   "id": "65d3c170f3d820fa1add4760",
+   "name_ru": "Невидимое письмо",
+   "level": 1
+  },
+  {
+   "id": "65d3c16ff3d820fa1add46aa",
+   "name_ru": "Невидимый слуга",
+   "level": 1
+  },
+  {
+   "id": "65d3c16cf3d820fa1add44ea",
+   "name_ru": "Обнаружение болезней и яда",
+   "level": 1
+  },
+  {
+   "id": "65d3c168f3d820fa1add4204",
+   "name_ru": "Обнаружение добра и зла",
+   "level": 1
+  },
+  {
+   "id": "65d3c16ff3d820fa1add4713",
+   "name_ru": "Обнаружение магии",
+   "name_en": "Detect Magic",
+   "level": 1
+  },
+  {
+   "id": "65d3c173f3d820fa1add48cc",
+   "name_ru": "Огненные ладони",
+   "level": 1
+  },
+  {
+   "id": "65d3c16ef3d820fa1add4617",
+   "name_ru": "Огонь фей",
+   "level": 1
+  },
+  {
+   "id": "65d3c16cf3d820fa1add4545",
+   "name_ru": "Опознание",
+   "level": 1
+  },
+  {
+   "id": "65d3c16bf3d820fa1add4426",
+   "name_ru": "Опутывание",
+   "level": 1
+  },
+  {
+   "id": "65d3c16df3d820fa1add45f4",
+   "name_ru": "Очарование личности",
+   "level": 1
+  },
+  {
+   "id": "65d3c16cf3d820fa1add448f",
+   "name_ru": "Очищение пищи и питья",
+   "level": 1
+  },
+  {
+   "id": "65d3c171f3d820fa1add4840",
+   "name_ru": "Падение пёрышком",
+   "level": 1
+  },
+  {
+   "id": "65d3c176f3d820fa1add4a31",
+   "name_ru": "Парящий диск",
+   "level": 1
+  },
+  {
+   "id": "65d3c176f3d820fa1add49e4",
+   "name_ru": "Поиск фамильяра",
+   "name_en": "Find Familiar",
+   "level": 1
+  },
+  {
+   "id": "65d3c16cf3d820fa1add454c",
+   "name_ru": "Понимание языков",
+   "level": 1
+  },
+  {
+   "id": "65d3c16bf3d820fa1add441f",
+   "name_ru": "Порча",
+   "level": 1
+  },
+  {
+   "id": "65d3c176f3d820fa1add4a0e",
+   "name_ru": "Поспешное отступление",
+   "level": 1
+  },
+  {
+   "id": "65d3c16af3d820fa1add439a",
+   "name_ru": "Приказ",
+   "level": 1
+  },
+  {
+   "id": "65d3c173f3d820fa1add490b",
+   "name_ru": "Прыжок",
+   "level": 1
+  },
+  {
+   "id": "65d3c174f3d820fa1add4974",
+   "name_ru": "Псевдожизнь",
+   "level": 1
+  },
+  {
+   "id": "65d3c16ff3d820fa1add4721",
+   "name_ru": "Разговор с животными",
+   "level": 1
+  },
+  {
+   "id": "65d3c171f3d820fa1add480f",
+   "name_ru": "Сверкающие брызги",
+   "level": 1
+  },
+  {
+   "id": "65d3c172f3d820fa1add485c",
+   "name_ru": "Сигнал тревоги",
+   "level": 1
+  },
+  {
+   "id": "65d3c16af3d820fa1add4393",
+   "name_ru": "Скольжение",
+   "level": 1
+  },
+  {
+   "id": "65d3c16bf3d820fa1add4418",
+   "name_ru": "Скороход",
+   "level": 1
+  },
+  {
+   "id": "65d3c173f3d820fa1add48fd",
+   "name_ru": "Сотворение или уничтожение воды",
+   "level": 1
+  },
+  {
+   "id": "65d3c168f3d820fa1add4212",
+   "name_ru": "Туманное облако",
+   "level": 1
+  },
+  {
+   "id": "65d3c171f3d820fa1add47c9",
+   "name_ru": "Убежище",
+   "level": 1
+  },
+  {
+   "id": "65d3c16af3d820fa1add437e",
+   "name_ru": "Усыпление",
+   "name_en": "Sleep",
+   "level": 1
+  },
+  {
+   "id": "65d3c169f3d820fa1add42cf",
+   "name_ru": "Чудо-ягоды",
+   "name_en": "Goodberry",
+   "level": 1
+  },
+  {
+   "id": "65d3c172f3d820fa1add486a",
+   "name_ru": "Щит",
+   "level": 1
+  },
+  {
+   "id": "65d3c172f3d820fa1add48be",
+   "name_ru": "Щит веры",
+   "level": 1
+  },
+  {
+   "id": "65d3c16ef3d820fa1add4672",
+   "name_ru": "Бесследное передвижение",
+   "level": 2
+  },
+  {
+   "id": "65d3c16bf3d820fa1add440a",
+   "name_ru": "Божественное оружие",
+   "level": 2
+  },
+  {
+   "id": "65d3c16ff3d820fa1add470c",
+   "name_ru": "Вечный огонь",
+   "level": 2
+  },
+  {
+   "id": "65d3c172f3d820fa1add4894",
+   "name_ru": "Видение невидимого",
+   "level": 2
+  },
+  {
+   "id": "65d3c16af3d820fa1add43ee",
+   "name_ru": "Внушение",
+   "level": 2
+  },
+  {
+   "id": "65d3c169f3d820fa1add4266",
+   "name_ru": "Волшебные уста",
+   "level": 2
+  },
+  {
+   "id": "65d3c16bf3d820fa1add4411",
+   "name_ru": "Волшебный замок",
+   "level": 2
+  },
+  {
+   "id": "65d3c173f3d820fa1add48c5",
+   "name_ru": "Гадание",
+   "name_en": "Augury",
+   "level": 2
+  },
+  {
+   "id": "65d3c168f3d820fa1add419b",
+   "name_ru": "Глухота/слепота",
+   "level": 2
+  },
+  {
+   "id": "65d3c16df3d820fa1add457d",
+   "name_ru": "Горящий клинок",
+   "level": 2
+  },
+  {
+   "id": "65d3c175f3d820fa1add49c8",
+   "name_ru": "Дребезги",
+   "level": 2
+  },
+  {
+   "id": "65d3c16ff3d820fa1add46f7",
+   "name_ru": "Дубовая кора",
+   "level": 2
+  },
+  {
+   "id": "65d3c173f3d820fa1add4927",
+   "name_ru": "Защита от яда",
+   "level": 2
+  },
+  {
+   "id": "65d3c16df3d820fa1add45e6",
+   "name_ru": "Кислотная стрела",
+   "level": 2
+  },
+  {
+   "id": "65d3c16bf3d820fa1add442d",
+   "name_ru": "Клеймящая кара",
+   "level": 2
+  },
+  {
+   "id": "65d3c16ef3d820fa1add464f",
+   "name_ru": "Левитация",
+   "name_en": "Levitate",
+   "level": 2
+  },
+  {
+   "id": "65d3c171f3d820fa1add481d",
+   "name_ru": "Ложная магия",
+   "level": 2
+  },
+  {
+   "id": "65d3c175f3d820fa1add49ac",
+   "name_ru": "Лунный луч",
+   "level": 2
+  },
+  {
+   "id": "65d3c16cf3d820fa1add450d",
+   "name_ru": "Луч слабости",
+   "level": 2
+  },
+  {
+   "id": "65d3c171f3d820fa1add47de",
+   "name_ru": "Магическое оружие",
+   "level": 2
+  },
+  {
+   "id": "65d3c171f3d820fa1add4824",
+   "name_ru": "Малое восстановление",
+   "level": 2
+  },
+  {
+   "id": "65d3c171f3d820fa1add4839",
+   "name_ru": "Молебен лечения",
+   "level": 2
+  },
+  {
+   "id": "65d3c172f3d820fa1add48b7",
+   "name_ru": "Невидимость",
+   "level": 2
+  },
+  {
+   "id": "65d3c16df3d820fa1add45c3",
+   "name_ru": "Нетленные останки",
+   "level": 2
+  },
+  {
+   "id": "65d3c169f3d820fa1add4290",
+   "name_ru": "Область истины",
+   "level": 2
+  },
+  {
+   "id": "65d3c16ef3d820fa1add468e",
+   "name_ru": "Обнаружение мыслей",
+   "level": 2
+  },
+  {
+   "id": "65d3c170f3d820fa1add4767",
+   "name_ru": "Открывание",
+   "level": 2
+  },
+  {
+   "id": "65d3c172f3d820fa1add487f",
+   "name_ru": "Отражения",
+   "level": 2
+  },
+  {
+   "id": "65d3c169f3d820fa1add42c8",
+   "name_ru": "Охраняющая связь",
+   "level": 2
+  },
+  {
+   "id": "65d3c176f3d820fa1add49dd",
+   "name_ru": "Палящий луч",
+   "level": 2
+  },
+  {
+   "id": "65d3c174f3d820fa1add4989",
+   "name_ru": "Паук",
+   "level": 2
+  },
+  {
+   "id": "65d3c173f3d820fa1add48da",
+   "name_ru": "Паутина",
+   "level": 2
+  },
+  {
+   "id": "65d3c169f3d820fa1add42eb",
+   "name_ru": "Подмога",
+   "level": 2
+  },
+  {
+   "id": "65d3c16cf3d820fa1add44b2",
+   "name_ru": "Поиск животных или растений",
+   "level": 2
+  },
+  {
+   "id": "65d3c174f3d820fa1add496d",
+   "name_ru": "Поиск ловушек",
+   "level": 2
+  },
+  {
+   "id": "65d3c16ff3d820fa1add4705",
+   "name_ru": "Поиск предмета",
+   "level": 2
+  },
+  {
+   "id": "65d3c16cf3d820fa1add44c0",
+   "name_ru": "Поиск скакуна",
+   "level": 2
+  },
+  {
+   "id": "65d3c169f3d820fa1add4282",
+   "name_ru": "Порыв ветра",
+   "level": 2
+  },
+  {
+   "id": "65d3c16af3d820fa1add43e0",
+   "name_ru": "Почтовое животное",
+   "level": 2
+  },
+  {
+   "id": "65d3c16cf3d820fa1add44ab",
+   "name_ru": "Пылающий шар",
+   "level": 2
+  },
+  {
+   "id": "65d3c169f3d820fa1add42dd",
+   "name_ru": "Размытый образ",
+   "level": 2
+  },
+  {
+   "id": "65d3c168f3d820fa1add41e1",
+   "name_ru": "Раскалённый металл",
+   "level": 2
+  },
+  {
+   "id": "65d3c16bf3d820fa1add4403",
+   "name_ru": "Речь златоуста",
+   "level": 2
+  },
+  {
+   "id": "65d3c16af3d820fa1add435b",
+   "name_ru": "Смена обличья",
+   "level": 2
+  },
+  {
+   "id": "65d3c16af3d820fa1add430e",
+   "name_ru": "Тёмное зрение",
+   "level": 2
+  },
+  {
+   "id": "65d3c16ff3d820fa1add46a3",
+   "name_ru": "Тишина",
+   "level": 2
+  },
+  {
+   "id": "65d3c16df3d820fa1add4584",
+   "name_ru": "Трюк с верёвкой",
+   "level": 2
+  },
+  {
+   "id": "65d3c16bf3d820fa1add4434",
+   "name_ru": "Туманный шаг",
+   "level": 2
+  },
+  {
+   "id": "65d3c173f3d820fa1add4904",
+   "name_ru": "Тьма",
+   "level": 2
+  },
+  {
+   "id": "65d3c168f3d820fa1add41be",
+   "name_ru": "Увеличение/уменьшение",
+   "level": 2
+  },
+  {
+   "id": "65d3c16cf3d820fa1add44f1",
+   "name_ru": "Удержание личности",
+   "level": 2
+  },
+  {
+   "id": "65d3c16ef3d820fa1add465d",
+   "name_ru": "Улучшение характеристики",
+   "level": 2
+  },
+  {
+   "id": "65d3c16cf3d820fa1add4537",
+   "name_ru": "Умиротворение",
+   "level": 2
+  },
+  {
+   "id": "65d3c16af3d820fa1add433f",
+   "name_ru": "Шипы",
+   "level": 2
+  },
+  {
+   "id": "65d3c16ef3d820fa1add466b",
+   "name_ru": "Возрождение",
+   "level": 3
+  },
+  {
+   "id": "65d3c170f3d820fa1add4736",
+   "name_ru": "Восставший труп",
+   "level": 3
+  },
+  {
+   "id": "65d3c16cf3d820fa1add449d",
+   "name_ru": "Вызов животных",
+   "level": 3
+  },
+  {
+   "id": "65d3c172f3d820fa1add4847",
+   "name_ru": "Газообразная форма",
+   "level": 3
+  },
+  {
+   "id": "65d3c16df3d820fa1add4561",
+   "name_ru": "Гипнотический узор",
+   "level": 3
+  },
+  {
+   "id": "65d3c175f3d820fa1add49c1",
+   "name_ru": "Дневной свет",
+   "level": 3
+  },
+  {
+   "id": "65d3c16bf3d820fa1add4450",
+   "name_ru": "Духовные стражи",
+   "level": 3
+  },
+  {
+   "id": "65d3c16ef3d820fa1add4664",
+   "name_ru": "Замедление",
+   "level": 3
+  },
+  {
+   "id": "65d3c16cf3d820fa1add4506",
+   "name_ru": "Защита от энергии",
+   "level": 3
+  },
+  {
+   "id": "65d3c176f3d820fa1add4a2a",
+   "name_ru": "Зловонное облако",
+   "level": 3
+  },
+  {
+   "id": "65d3c168f3d820fa1add41fd",
+   "name_ru": "Контрзаклинание",
+   "level": 3
+  },
+  {
+   "id": "65d3c16af3d820fa1add4300",
+   "name_ru": "Магический круг",
+   "level": 3
+  },
+  {
+   "id": "65d3c16cf3d820fa1add44ce",
+   "name_ru": "Маяк надежды",
+   "level": 3
+  },
+  {
+   "id": "65d3c16df3d820fa1add45ca",
+   "name_ru": "Мерцание",
+   "level": 3
+  },
+  {
+   "id": "65d3c174f3d820fa1add493c",
+   "name_ru": "Метель",
+   "level": 3
+  },
+  {
+   "id": "65d3c16df3d820fa1add45bc",
+   "name_ru": "Множественное лечащее слово",
+   "level": 3
+  },
+  {
+   "id": "65d3c172f3d820fa1add48b0",
+   "name_ru": "Молния",
+   "level": 3
+  },
+  {
+   "id": "65d3c170f3d820fa1add4791",
+   "name_ru": "Необнаружимость",
+   "level": 3
+  },
+  {
+   "id": "65d3c16df3d820fa1add45d8",
+   "name_ru": "Образ",
+   "level": 3
+  },
+  {
+   "id": "65d3c16df3d820fa1add458b",
+   "name_ru": "Огненный шар",
+   "level": 3
+  },
+  {
+   "id": "65d3c16af3d820fa1add43bd",
+   "name_ru": "Охранные руны",
+   "level": 3
+  },
+  {
+   "id": "65d3c16df3d820fa1add4576",
+   "name_ru": "Подводное дыхание",
+   "level": 3
+  },
+  {
+   "id": "65d3c16df3d820fa1add456f",
+   "name_ru": "Подсматривание",
+   "level": 3
+  },
+  {
+   "id": "65d3c168f3d820fa1add4258",
+   "name_ru": "Полёт",
+   "level": 3
+  },
+  {
+   "id": "65d3c16ef3d820fa1add4602",
+   "name_ru": "Послание",
+   "level": 3
+  },
+  {
+   "id": "65d3c171f3d820fa1add47e5",
+   "name_ru": "Призрачный скакун",
+   "level": 3
+  },
+  {
+   "id": "65d3c16ff3d820fa1add46c6",
+   "name_ru": "Призыв молнии",
+   "level": 3
+  },
+  {
+   "id": "65d3c16ef3d820fa1add4633",
+   "name_ru": "Прикосновение вампира",
+   "level": 3
+  },
+  {
+   "id": "65d3c16cf3d820fa1add453e",
+   "name_ru": "Проклятие",
+   "level": 3
+  },
+  {
+   "id": "65d3c16ef3d820fa1add469c",
+   "name_ru": "Разговор с мёртвыми",
+   "level": 3
+  },
+  {
+   "id": "65d3c168f3d820fa1add41cc",
+   "name_ru": "Разговор с растениями",
+   "level": 3
+  },
+  {
+   "id": "65d3c176f3d820fa1add4a1c",
+   "name_ru": "Рассеивание магии",
+   "level": 3
+  },
+  {
+   "id": "65d3c16af3d820fa1add43af",
+   "name_ru": "Слияние с камнем",
+   "level": 3
+  },
+  {
+   "id": "65d3c175f3d820fa1add49d6",
+   "name_ru": "Снятие проклятья",
+   "level": 3
+  },
+  {
+   "id": "65d3c168f3d820fa1add41b7",
+   "name_ru": "Сотворение пищи и воды",
+   "level": 3
+  },
+  {
+   "id": "65d3c16cf3d820fa1add44f8",
+   "name_ru": "Стена ветров",
+   "level": 3
+  },
+  {
+   "id": "65d3c171f3d820fa1add47ec",
+   "name_ru": "Ужас",
+   "level": 3
+  },
+  {
+   "id": "65d3c16af3d820fa1add43a1",
+   "name_ru": "Ускорение",
+   "level": 3
+  },
+  {
+   "id": "65d3c16bf3d820fa1add447a",
+   "name_ru": "Хижина",
+   "level": 3
+  },
+  {
+   "id": "65d3c169f3d820fa1add42b3",
+   "name_ru": "Хождение по воде",
+   "level": 3
+  },
+  {
+   "id": "65d3c176f3d820fa1add4a15",
+   "name_ru": "Языки",
+   "level": 3
+  },
+  {
+   "id": "65d3c16af3d820fa1add4346",
+   "name_ru": "Верный пёс",
+   "level": 4
+  },
+  {
+   "id": "65d3c171f3d820fa1add47fa",
+   "name_ru": "Власть над водами",
+   "level": 4
+  },
+  {
+   "id": "65d3c171f3d820fa1add47c2",
+   "name_ru": "Воображаемый убийца",
+   "level": 4
+  },
+  {
+   "id": "65d3c176f3d820fa1add49eb",
+   "name_ru": "Вызов лесных обитателей",
+   "level": 4
+  },
+  {
+   "id": "65d3c174f3d820fa1add4943",
+   "name_ru": "Вызов малых элементалей",
+   "level": 4
+  },
+  {
+   "id": "65d3c16bf3d820fa1add443b",
+   "name_ru": "Высшая невидимость",
+   "level": 4
+  },
+  {
+   "id": "65d3c170f3d820fa1add4752",
+   "name_ru": "Гигантское насекомое",
+   "level": 4
+  },
+  {
+   "id": "65d3c171f3d820fa1add4808",
+   "name_ru": "Град",
+   "level": 4
+  },
+  {
+   "id": "65d3c169f3d820fa1add42e4",
+   "name_ru": "Защита от смерти",
+   "level": 4
+  },
+  {
+   "id": "65d3c16df3d820fa1add45ed",
+   "name_ru": "Изгнание",
+   "level": 4
+  },
+  {
+   "id": "65d3c16af3d820fa1add4338",
+   "name_ru": "Изготовление",
+   "level": 4
+  },
+  {
+   "id": "65d3c16af3d820fa1add4369",
+   "name_ru": "Изменение формы камня",
+   "level": 4
+  },
+  {
+   "id": "65d3c168f3d820fa1add41e8",
+   "name_ru": "Кабинет",
+   "level": 4
+  },
+  {
+   "id": "65d3c16af3d820fa1add43c4",
+   "name_ru": "Каменная кожа",
+   "level": 4
+  },
+  {
+   "id": "65d3c16ff3d820fa1add46cd",
+   "name_ru": "Магический глаз",
+   "level": 4
+  },
+  {
+   "id": "65d3c16bf3d820fa1add4488",
+   "name_ru": "Мираж",
+   "level": 4
+  },
+  {
+   "id": "65d3c16cf3d820fa1add451b",
+   "name_ru": "Огненная стена",
+   "level": 4
+  },
+  {
+   "id": "65d3c16af3d820fa1add431c",
+   "name_ru": "Огненный щит",
+   "level": 4
+  },
+  {
+   "id": "65d3c16ff3d820fa1add46db",
+   "name_ru": "Переносящая дверь",
+   "level": 4
+  },
+  {
+   "id": "65d3c170f3d820fa1add473d",
+   "name_ru": "Подчинение зверя",
+   "level": 4
+  },
+  {
+   "id": "65d3c170f3d820fa1add4783",
+   "name_ru": "Поиск существа",
+   "level": 4
+  },
+  {
+   "id": "65d3c16af3d820fa1add4354",
+   "name_ru": "Потайной сундук",
+   "level": 4
+  },
+  {
+   "id": "65d3c169f3d820fa1add42f2",
+   "name_ru": "Превращение",
+   "level": 4
+  },
+  {
+   "id": "65d3c16df3d820fa1add4599",
+   "name_ru": "Предсказание",
+   "level": 4
+  },
+  {
+   "id": "65d3c16af3d820fa1add4385",
+   "name_ru": "Принуждение",
+   "level": 4
+  },
+  {
+   "id": "65d3c170f3d820fa1add479f",
+   "name_ru": "Свобода перемещения",
+   "level": 4
+  },
+  {
+   "id": "65d3c16af3d820fa1add43cb",
+   "name_ru": "Смятение",
+   "level": 4
+  },
+  {
+   "id": "65d3c16ff3d820fa1add471a",
+   "name_ru": "Страж веры",
+   "level": 4
+  },
+  {
+   "id": "65d3c169f3d820fa1add42a5",
+   "name_ru": "Упругий шар",
+   "level": 4
+  },
+  {
+   "id": "65d3c16cf3d820fa1add4496",
+   "name_ru": "Усыхание",
+   "level": 4
+  },
+  {
+   "id": "65d3c168f3d820fa1add41c5",
+   "name_ru": "Чёрные щупальца",
+   "level": 4
+  },
+  {
+   "id": "65d3c16df3d820fa1add45df",
+   "name_ru": "Вещий сон",
+   "level": 5
+  },
+  {
+   "id": "65d3c173f3d820fa1add48e8",
+   "name_ru": "Вызов элементаля",
+   "level": 5
+  },
+  {
+   "id": "65d3c16ef3d820fa1add463a",
+   "name_ru": "Высшее восстановление",
+   "level": 5
+  },
+  {
+   "id": "65d3c171f3d820fa1add47d0",
+   "name_ru": "Древесный путь",
+   "level": 5
+  },
+  {
+   "id": "65d3c168f3d820fa1add4235",
+   "name_ru": "Заражение",
+   "level": 5
+  },
+  {
+   "id": "65d3c169f3d820fa1add42ba",
+   "name_ru": "Знание легенд",
+   "level": 5
+  },
+  {
+   "id": "65d3c173f3d820fa1add48e1",
+   "name_ru": "Изменение памяти",
+   "level": 5
+  },
+  {
+   "id": "65d3c172f3d820fa1add484e",
+   "name_ru": "Каменная стена",
+   "level": 5
+  },
+  {
+   "id": "65d3c171f3d820fa1add47f3",
+   "name_ru": "Конус холода",
+   "level": 5
+  },
+  {
+   "id": "65d3c16cf3d820fa1add44d5",
+   "name_ru": "Круг телепортации",
+   "level": 5
+  },
+  {
+   "id": "65d3c16cf3d820fa1add44ff",
+   "name_ru": "Магическая длань",
+   "level": 5
+  },
+  {
+   "id": "65d3c16df3d820fa1add45a7",
+   "name_ru": "Ментальная связь",
+   "level": 5
+  },
+  {
+   "id": "65d3c177f3d820fa1add4a38",
+   "name_ru": "Множественное лечение ран",
+   "level": 5
+  },
+  {
+   "id": "65d3c16af3d820fa1add4362",
+   "name_ru": "Наблюдение",
+   "level": 5
+  },
+  {
+   "id": "65d3c168f3d820fa1add424a",
+   "name_ru": "Нашествие насекомых",
+   "level": 5
+  },
+  {
+   "id": "65d3c170f3d820fa1add47a6",
+   "name_ru": "Небесный огонь",
+   "level": 5
+  },
+  {
+   "id": "65d3c16bf3d820fa1add43fc",
+   "name_ru": "Обет",
+   "level": 5
+  },
+  {
+   "id": "65d3c16df3d820fa1add455a",
+   "name_ru": "Облако смерти",
+   "level": 5
+  },
+  {
+   "id": "65d3c16ef3d820fa1add4680",
+   "name_ru": "Общение",
+   "level": 5
+  },
+  {
+   "id": "65d3c170f3d820fa1add47ad",
+   "name_ru": "Общение с природой",
+   "level": 5
+  },
+  {
+   "id": "65d3c172f3d820fa1add489b",
+   "name_ru": "Оживление",
+   "level": 5
+  },
+  {
+   "id": "65d3c16bf3d820fa1add4449",
+   "name_ru": "Оживление вещей",
+   "level": 5
+  },
+  {
+   "id": "65d3c170f3d820fa1add4744",
+   "name_ru": "Планарные узы",
+   "level": 5
+  },
+  {
+   "id": "65d3c173f3d820fa1add48ef",
+   "name_ru": "Подчинение личности",
+   "level": 5
+  },
+  {
+   "id": "65d3c16bf3d820fa1add43f5",
+   "name_ru": "Преграда жизни",
+   "level": 5
+  },
+  {
+   "id": "65d3c176f3d820fa1add4a07",
+   "name_ru": "Притворство",
+   "level": 5
+  },
+  {
+   "id": "65d3c16ff3d820fa1add472f",
+   "name_ru": "Пробуждение разума",
+   "level": 5
+  },
+  {
+   "id": "65d3c171f3d820fa1add4816",
+   "name_ru": "Рассеивание добра и зла",
+   "level": 5
+  },
+  {
+   "id": "65d3c16ff3d820fa1add46bf",
+   "name_ru": "Реинкарнация",
+   "level": 5
+  },
+  {
+   "id": "65d3c170f3d820fa1add47b4",
+   "name_ru": "Связь с иным миром",
+   "level": 5
+  },
+  {
+   "id": "65d3c16af3d820fa1add4331",
+   "name_ru": "Святилище",
+   "level": 5
+  },
+  {
+   "id": "65d3c168f3d820fa1add4220",
+   "name_ru": "Силовая стена",
+   "level": 5
+  },
+  {
+   "id": "65d3c173f3d820fa1add4920",
+   "name_ru": "Создание прохода",
+   "level": 5
+  },
+  {
+   "id": "65d3c168f3d820fa1add41da",
+   "name_ru": "Сотворение",
+   "level": 5
+  },
+  {
+   "id": "65d3c16ef3d820fa1add4679",
+   "name_ru": "Телекинез",
+   "level": 5
+  },
+  {
+   "id": "65d3c174f3d820fa1add4935",
+   "name_ru": "Удержание чудовища",
+   "level": 5
+  },
+  {
+   "id": "65d3c174f3d820fa1add494a",
+   "name_ru": "Фальшивый двойник",
+   "level": 5
+  },
+  {
+   "id": "65d3c171f3d820fa1add47d7",
+   "name_ru": "Волшебный сосуд",
+   "level": 6
+  },
+  {
+   "id": "65d3c16ef3d820fa1add4625",
+   "name_ru": "Вызов феи",
+   "level": 6
+  },
+  {
+   "id": "65d3c16cf3d820fa1add4530",
+   "name_ru": "Движение почвы",
+   "level": 6
+  },
+  {
+   "id": "65d3c168f3d820fa1add4227",
+   "name_ru": "Заданная иллюзия",
+   "level": 6
+  },
+  {
+   "id": "65d3c16ff3d820fa1add46b8",
+   "name_ru": "Запрет",
+   "level": 6
+  },
+  {
+   "id": "65d3c169f3d820fa1add4274",
+   "name_ru": "Истинное зрение",
+   "level": 6
+  },
+  {
+   "id": "65d3c16ff3d820fa1add46e2",
+   "name_ru": "Круг смерти",
+   "level": 6
+  },
+  {
+   "id": "65d3c16bf3d820fa1add4473",
+   "name_ru": "Ледяная стена",
+   "level": 6
+  },
+  {
+   "id": "65d3c16af3d820fa1add43d2",
+   "name_ru": "Ледяной шар",
+   "level": 6
+  },
+  {
+   "id": "65d3c174f3d820fa1add4982",
+   "name_ru": "Множественное внушение",
+   "level": 6
+  },
+  {
+   "id": "65d3c168f3d820fa1add41a9",
+   "name_ru": "Неудержимая пляска",
+   "level": 6
+  },
+  {
+   "id": "65d3c172f3d820fa1add4855",
+   "name_ru": "Окаменение",
+   "level": 6
+  },
+  {
+   "id": "65d3c16ef3d820fa1add4648",
+   "name_ru": "Пир героев",
+   "level": 6
+  },
+  {
+   "id": "65d3c169f3d820fa1add4289",
+   "name_ru": "Планарный союзник",
+   "level": 6
+  },
+  {
+   "id": "65d3c16cf3d820fa1add44e3",
+   "name_ru": "Пляшущая молния",
+   "level": 6
+  },
+  {
+   "id": "65d3c16af3d820fa1add43e7",
+   "name_ru": "Поиск пути",
+   "level": 6
+  },
+  {
+   "id": "65d3c170f3d820fa1add4775",
+   "name_ru": "Полное исцеление",
+   "level": 6
+  },
+  {
+   "id": "65d3c171f3d820fa1add4832",
+   "name_ru": "Поражение",
+   "level": 6
+  },
+  {
+   "id": "65d3c169f3d820fa1add4297",
+   "name_ru": "Появление",
+   "level": 6
+  },
+  {
+   "id": "65d3c176f3d820fa1add4a00",
+   "name_ru": "Предосторожность",
+   "level": 6
+  },
+  {
+   "id": "65d3c174f3d820fa1add4966",
+   "name_ru": "Путешествие через растения",
+   "level": 6
+  },
+  {
+   "id": "65d3c16ef3d820fa1add4610",
+   "name_ru": "Разящее око",
+   "level": 6
+  },
+  {
+   "id": "65d3c16ef3d820fa1add461e",
+   "name_ru": "Распад",
+   "level": 6
+  },
+  {
+   "id": "65d3c169f3d820fa1add426d",
+   "name_ru": "Слово возврата",
+   "level": 6
+  },
+  {
+   "id": "65d3c16af3d820fa1add43d9",
+   "name_ru": "Солнечный луч",
+   "level": 6
+  },
+  {
+   "id": "65d3c168f3d820fa1add41b0",
+   "name_ru": "Сотворение нежити",
+   "level": 6
+  },
+  {
+   "id": "65d3c168f3d820fa1add4251",
+   "name_ru": "Стена клинков",
+   "level": 6
+  },
+  {
+   "id": "65d3c170f3d820fa1add478a",
+   "name_ru": "Стражи",
+   "level": 6
+  },
+  {
+   "id": "65d3c16cf3d820fa1add4529",
+   "name_ru": "Сфера неуязвимости",
+   "level": 6
+  },
+  {
+   "id": "65d3c173f3d820fa1add48d3",
+   "name_ru": "Терновая стена",
+   "level": 6
+  },
+  {
+   "id": "65d3c171f3d820fa1add47bb",
+   "name_ru": "Хождение по ветру",
+   "level": 6
+  },
+  {
+   "id": "65d3c16ef3d820fa1add45fb",
+   "name_ru": "Божественное слово",
+   "level": 7
+  },
+  {
+   "id": "65d3c176f3d820fa1add4a23",
+   "name_ru": "Великолепный особняк",
+   "level": 7
+  },
+  {
+   "id": "65d3c16df3d820fa1add4592",
+   "name_ru": "Воскрешение",
+   "level": 7
+  },
+  {
+   "id": "65d3c16bf3d820fa1add4465",
+   "name_ru": "Вызов небожителя",
+   "level": 7
+  },
+  {
+   "id": "65d3c168f3d820fa1add41a2",
+   "name_ru": "Замедленный огненный шар",
+   "level": 7
+  },
+  {
+   "id": "65d3c16af3d820fa1add4315",
+   "name_ru": "Знак",
+   "level": 7
+  },
+  {
+   "id": "65d3c168f3d820fa1add41d3",
+   "name_ru": "Изменение тяготения",
+   "level": 7
+  },
+  {
+   "id": "65d3c16ff3d820fa1add4728",
+   "name_ru": "Изоляция",
+   "level": 7
+  },
+  {
+   "id": "65d3c16ef3d820fa1add4687",
+   "name_ru": "Магический меч",
+   "level": 7
+  },
+  {
+   "id": "65d3c172f3d820fa1add4886",
+   "name_ru": "Огненная буря",
+   "level": 7
+  },
+  {
+   "id": "65d3c16af3d820fa1add43b6",
+   "name_ru": "Перст смерти",
+   "level": 7
+  },
+  {
+   "id": "65d3c172f3d820fa1add48a2",
+   "name_ru": "Подобие",
+   "level": 7
+  },
+  {
+   "id": "65d3c172f3d820fa1add4878",
+   "name_ru": "Проекция",
+   "level": 7
+  },
+  {
+   "id": "65d3c16af3d820fa1add4370",
+   "name_ru": "Радужные брызги",
+   "level": 7
+  },
+  {
+   "id": "65d3c16bf3d820fa1add445e",
+   "name_ru": "Регенерация",
+   "level": 7
+  },
+  {
+   "id": "65d3c169f3d820fa1add42c1",
+   "name_ru": "Таинственный мираж",
+   "level": 7
+  },
+  {
+   "id": "65d3c176f3d820fa1add49f9",
+   "name_ru": "Телепортация",
+   "level": 7
+  },
+  {
+   "id": "65d3c16cf3d820fa1add44b9",
+   "name_ru": "Узилище",
+   "level": 7
+  },
+  {
+   "id": "65d3c16cf3d820fa1add44dc",
+   "name_ru": "Уход в иной мир",
+   "level": 7
+  },
+  {
+   "id": "65d3c168f3d820fa1add4219",
+   "name_ru": "Эфирность",
+   "level": 7
+  },
+  {
+   "id": "65d3c168f3d820fa1add4186",
+   "name_ru": "Антипатия/симпатия",
+   "level": 8
+  },
+  {
+   "id": "65d3c16df3d820fa1add45ae",
+   "name_ru": "Аура святости",
+   "level": 8
+  },
+  {
+   "id": "65d3c170f3d820fa1add4798",
+   "name_ru": "Власть над погодой",
+   "level": 8
+  },
+  {
+   "id": "65d3c168f3d820fa1add418d",
+   "name_ru": "Воспламеняющаяся туча",
+   "level": 8
+  },
+  {
+   "id": "65d3c16df3d820fa1add4568",
+   "name_ru": "Двойник",
+   "level": 8
+  },
+  {
+   "id": "65d3c173f3d820fa1add48f6",
+   "name_ru": "Демиплан",
+   "level": 8
+  },
+  {
+   "id": "65d3c16cf3d820fa1add4522",
+   "name_ru": "Землетрясение",
+   "level": 8
+  },
+  {
+   "id": "65d3c175f3d820fa1add49a5",
+   "name_ru": "Лабиринт",
+   "level": 8
+  },
+  {
+   "id": "65d3c16cf3d820fa1add4553",
+   "name_ru": "Находчивость",
+   "level": 8
+  },
+  {
+   "id": "65d3c16ff3d820fa1add46b1",
+   "name_ru": "Подчинение чудовища",
+   "level": 8
+  },
+  {
+   "id": "65d3c173f3d820fa1add492e",
+   "name_ru": "Превращение в животных",
+   "level": 8
+  },
+  {
+   "id": "65d3c172f3d820fa1add4863",
+   "name_ru": "Преграда магии",
+   "level": 8
+  },
+  {
+   "id": "65d3c16af3d820fa1add4307",
+   "name_ru": "Слабоумие",
+   "level": 8
+  },
+  {
+   "id": "65d3c16bf3d820fa1add4481",
+   "name_ru": "Слово силы: Оглушение",
+   "level": 8
+  },
+  {
+   "id": "65d3c16ef3d820fa1add4641",
+   "name_ru": "Сокрытие разума",
+   "level": 8
+  },
+  {
+   "id": "65d3c172f3d820fa1add48a9",
+   "name_ru": "Солнечный ожог",
+   "level": 8
+  },
+  {
+   "id": "65d3c168f3d820fa1add4194",
+   "name_ru": "Врата",
+   "level": 9
+  },
+  {
+   "id": "65d3c170f3d820fa1add477c",
+   "name_ru": "Гроза гнева",
+   "level": 9
+  },
+  {
+   "id": "65d3c16df3d820fa1add45a0",
+   "name_ru": "Заточение",
+   "level": 9
+  },
+  {
+   "id": "65d3c168f3d820fa1add423c",
+   "name_ru": "Исполнение желаний",
+   "level": 9
+  },
+  {
+   "id": "65d3c16af3d820fa1add4323",
+   "name_ru": "Истинное воскрешение",
+   "level": 9
+  },
+  {
+   "id": "65d3c16af3d820fa1add432a",
+   "name_ru": "Истинное превращение",
+   "level": 9
+  },
+  {
+   "id": "65d3c16ef3d820fa1add4656",
+   "name_ru": "Метеоритный дождь",
+   "level": 9
+  },
+  {
+   "id": "65d3c16ff3d820fa1add46d4",
+   "name_ru": "Множественное полное исцеление",
+   "level": 9
+  },
+  {
+   "id": "65d3c171f3d820fa1add4801",
+   "name_ru": "Остановка времени",
+   "level": 9
+  },
+  {
+   "id": "65d3c16ef3d820fa1add462c",
+   "name_ru": "Полное превращение",
+   "level": 9
+  },
+  {
+   "id": "65d3c175f3d820fa1add49ba",
+   "name_ru": "Предвидение",
+   "level": 9
+  },
+  {
+   "id": "65d3c175f3d820fa1add4990",
+   "name_ru": "Проекция в астрал",
+   "level": 9
+  },
+  {
+   "id": "65d3c16cf3d820fa1add44a4",
+   "name_ru": "Радужная стена",
+   "level": 9
+  },
+  {
+   "id": "65d3c16cf3d820fa1add4514",
+   "name_ru": "Слово силы: Смерть",
+   "level": 9
+  },
+  {
+   "id": "65d3c168f3d820fa1add4243",
+   "name_ru": "Смертный ужас",
+   "level": 9
+  }
+ ]
+}

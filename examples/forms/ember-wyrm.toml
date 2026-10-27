@@ -1,0 +1,83 @@
+kind = "monster"
+name = "Пепельный змей"
+size = "large"
+type = "dragon"
+alignment = "хаотично-злой"
+cr = "7"
+ac = 17
+ac_note = "природный доспех"
+hp = 102
+speed = { walk = 40, fly = 80, climb = 40 }
+abilities = "19 12 17 12 13 15"        # сила ловкость телосложение интеллект мудрость харизма
+saves = ["dex", "con", "wis"]
+skills = ["perception", "stealth"]
+resist = ["cold"]
+immune = ["fire"]
+condition_immune = ["frightened"]
+senses = { blindsight = 30, darkvision = 120 }
+languages = ["драконий", "общий"]
+legendary_per_round = 3
+tactics = "Атакует с воздуха, затем опускается в дым. Дыхание использует, когда цели собираются в группу."
+doubts = ["Не уверен, что ослепление от дыхания не слишком сильное для CR 7: возможно, стоит ограничить одним ходом."]
+
+[[traits]]
+name = "Жар тела"
+text = "Существо, которое касается змея или начинает ход вплотную к нему, получает 5 (1к10) урона огнём."
+custom = true
+
+[[traits]]
+name = "Пепельный покров"
+text = "Змей совершает с преимуществом проверки Ловкости (Скрытность) в густом дыму или пепле."
+custom = true
+
+[[actions]]
+name = "Мультиатака"
+kind = "multiattack"
+text = "Змей совершает три атаки: одну укусом и две когтями."
+plan = ["Укус", "Коготь x2"]
+
+[[actions]]
+name = "Укус"
+ability = "str"
+reach = 10
+dice = "2d10"
+damage = "piercing"
+extra = ["1d6 fire"]
+
+[[actions]]
+name = "Коготь"
+ability = "str"
+reach = 5
+dice = "2d6"
+damage = "slashing"
+
+[[actions]]
+name = "Пепельное дыхание"
+save = "dex"
+dc = "con"
+area = "конус 30 фт."
+dice = "12d6"
+damage = "fire"
+on_success = "half"
+text = "Цели, провалившие спасбросок, становятся ослеплёнными до конца своего следующего хода."
+uses = "recharge 5"
+
+[[reactions]]
+name = "Огненный отпор"
+text = "Когда змей получает урон от существа в пределах 5 футов, он наносит ему 7 (2к6) урона огнём."
+
+[[legendary]]
+name = "Обнаружение"
+text = "Змей совершает проверку Мудрости (Внимательность)."
+
+[[legendary]]
+name = "Удар хвостом"
+ability = "str"
+reach = 15
+dice = "2d8"
+damage = "bludgeoning"
+
+[[legendary]]
+name = "Вспышка жара"
+text = "Змей выпускает волну жара: все существа в пределах 10 футов получают 7 (2к6) урона огнём."
+cost = 2

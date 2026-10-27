@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0",
+  "ruleset": "dnd5e-2014",
+  "kind": "character",
+  "name": "Северин Росзнар",
+  "race": { "name": "Человек" },
+  "background": "Студент Визерблума",
+  "alignment": "Добрый",
+  "classes": [{ "class": "wizard", "subclass": "Прорицания", "level": 3 }],
+  "experience": 900,
+  "abilities": { "str": 8, "dex": 12, "con": 14, "int": 18, "wis": 14, "cha": 10 },
+  "speed": { "walk": 30 },
+  "skill_proficiencies": [
+    { "skill": "investigation" },
+    { "skill": "perception" },
+    { "skill": "arcana", "expertise": true },
+    { "skill": "medicine" },
+    { "skill": "nature" }
+  ],
+  "proficiencies": {
+    "armor": [],
+    "weapons": ["кинжалы", "дротики", "пращи", "боевые посохи", "лёгкие арбалеты"],
+    "tools": ["набор травника", "инструменты алхимика"]
+  },
+  "languages": ["общий"],
+  "weapons": [
+    {
+      "name": "Посох",
+      "melee": true,
+      "damage": { "dice": "1d6", "type": "bludgeoning" },
+      "versatile_dice": "1d8",
+      "properties": ["versatile"],
+      "source": { "type": "official", "book": "SRD 5.1" }
+    },
+    {
+      "name": "Кинжал из чернил",
+      "melee": true,
+      "ability": "int",
+      "damage": { "dice": "1d4", "type": "piercing" },
+      "source": { "type": "custom" }
+    }
+  ],
+  "features": [
+    {
+      "name": "Магическое восстановление",
+      "text": "На коротком отдыхе восстановить 1 ячейку 1 уровня.",
+      "origin": { "type": "class", "class": "wizard", "level": 1 },
+      "usage": { "type": "per_rest", "times": 1, "rest": "short" },
+      "source": { "type": "official", "book": "SRD 5.1" }
+    },
+    {
+      "name": "Знамение",
+      "text": "Бросаю 2d20 в начале дня. В течение дня могу заменить любой бросок d20, в том числе чужой, на одно из выпавших значений. Второе значение работает так же один раз.",
+      "origin": { "type": "class", "class": "wizard", "level": 2 },
+      "usage": { "type": "per_rest", "times": 2, "rest": "long" },
+      "source": { "type": "official", "book": "SRD 5.1" }
+    },
+    {
+      "name": "Везунчик",
+      "text": "Могу потратить единицу удачи, чтобы перебросить любой d20 (даже чужой) и выбрать, какой результат использовать.",
+      "origin": { "type": "race" },
+      "usage": { "type": "per_rest", "times": 3, "rest": "long" },
+      "source": { "type": "official", "book": "Руководство игрока" }
+    },
+    {
+      "name": "Халявные чудо-ягоды",
+      "text": "Предыстория «Поступивший в Стриксхейвен»: заклинание «чудо-ягоды» без траты ячейки.",
+      "origin": { "type": "background" },
+      "usage": { "type": "per_rest", "times": 1, "rest": "long" },
+      "source": { "type": "official", "book": "Strixhaven: Курс хаоса" }
+    }
+  ],
+  "spellcasting": [
+    {
+      "class": "wizard",
+      "spells": [
+        { "name": "Леденящее прикосновение", "name_en": "Chill Touch", "level": 0, "source": { "type": "official", "book": "SRD 5.1" } },
+        { "name": "Искусство друидов", "name_en": "Druidcraft", "level": 0, "source": { "type": "official", "book": "Руководство игрока" } },
+        { "name": "Чудо-ягоды", "name_en": "Goodberry", "level": 1, "source": { "type": "official", "book": "SRD 5.1" } },
+        { "name": "Лечение ран", "name_en": "Cure Wounds", "level": 1, "source": { "type": "official", "book": "SRD 5.1" } },
+        { "name": "Нанесение ран", "name_en": "Inflict Wounds", "level": 1, "source": { "type": "official", "book": "SRD 5.1" } },
+        { "name": "Малое восстановление", "name_en": "Lesser Restoration", "level": 2, "source": { "type": "official", "book": "SRD 5.1" } }
+      ]
+    }
+  ],
+  "equipment": {
+    "items": [
+      { "name": "Посох (магическая фокусировка)" },
+      { "name": "Книга заклинаний" },
+      { "name": "Набор учёного" },
+      { "name": "Набор травника" },
+      { "name": "Инструменты алхимика" },
+      { "name": "Комплект целителя" },
+      { "name": "Железный горшок" },
+      {
+        "name": "Бутылка безграничного кофе",
+        "magic": true,
+        "description": "В ней всегда есть вкусный, тёплый кофе. Каждый раз, когда пью кофе, бросаю d20. Если выпала «1», кофе на сегодня закончился."
+      },
+      { "name": "Бездонная сумка", "magic": true }
+    ],
+    "currency": { "gp": 3, "sp": 8, "cp": 20 }
+  },
+  "body": { "age": "16", "height": "180", "weight": "70", "eyes": "Голубые", "skin": "Белее нормы", "hair": "Чёрные кудри" },
+  "personality": {
+    "traits": "Больше всего на свете я люблю тайны.",
+    "ideals": "Знание. Путь к силе и самосовершенствованию лежит в знаниях.",
+    "bonds": "Я влюблён в наследницу семейства, презираемого моей роднёй.",
+    "flaws": "Я скрываю позорную тайну, которая может уничтожить мою семью.\nЯ часто навлекаю позор на свою семью словами и действиями.",
+    "backstory": "Студент колледжа Визерблум в Стриксхейвене.",
+    "relationships": [
+      { "name": "Лирен Травокрад", "relation": "полурослик, алхимик, специализируется на ядах" },
+      { "name": "Кейра Костецвет", "relation": "тифлингша, весёлая и жуткая, болтает с мёртвыми цветами" },
+      { "name": "Фамильяр Леди", "relation": "ласка" }
+    ]
+  },
+  "inspiration": true,
+  "source": { "type": "custom", "note": "импорт из Long Story Short для проверки" }
+}

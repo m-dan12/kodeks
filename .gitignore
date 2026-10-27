@@ -1,0 +1,14 @@
+node_modules/
+dist/
+*.log
+out/
+dev-dist
+
+# Служебное
+.claude/
+/*.png
+/r.py
+/r2.py
+*.apk
+*.zip
+.DS_Store

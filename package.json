@@ -1,0 +1,50 @@
+{
+  "name": "kodeks",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "Из анкеты TOML, которую выдала LLM, в PDF (монстр, NPC) или в файл для Long Story Short (персонаж) для D&D 5e",
+  "scripts": {
+    "validate": "tsx src/cli.ts",
+    "test": "tsx --test tests/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "export:lss": "tsx src/export-lss.ts",
+    "pdf": "tsx src/pdf-cli.ts",
+    "dev": "vite",
+    "prebuild": "node scripts/sync-version.cjs",
+    "build": "vite build",
+    "preview": "vite preview",
+    "llm:kits": "tsx scripts/build-form-kit.ts",
+    "build:exe": "node scripts/sync-version.cjs && vite build && electron-packager . Kodeks --executable-name=Kodeks --icon=assets/icon.ico --win32metadata.ProductName=Кодекс --win32metadata.FileDescription=Кодекс --platform=win32 --arch=x64 --out=out/exe --overwrite --ignore=\"^/(src|tests|scripts|android|out|llm|data|examples|schema|assets|node_modules|public|dev-dist|.claude|capacitor.config.json|tsconfig.json|vite.config.ts|index.html)\""
+  },
+  "dependencies": {
+    "@capacitor/app": "^8.1.2",
+    "@capacitor/browser": "^8.0.5",
+    "@capacitor/core": "^8.5.3",
+    "@capacitor/filesystem": "^8.1.5",
+    "@capacitor/share": "^8.0.3",
+    "@fontsource/cormorant-garamond": "^5.3.0",
+    "@fontsource/inter": "^5.3.0",
+    "@fontsource/jetbrains-mono": "^5.3.0",
+    "@react-pdf/renderer": "^4.9.0",
+    "ajv": "^8.20.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "smol-toml": "^1.9.1"
+  },
+  "devDependencies": {
+    "@capacitor/android": "^8.5.3",
+    "@capacitor/cli": "^8.5.3",
+    "@electron/packager": "^20.3.0",
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "electron": "^45.0.0",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5",
+    "vite-plugin-pwa": "^2.0.0"
+  },
+  "main": "electron/main.cjs"
+}

@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "ruleset": "dnd5e-2014",
+  "kind": "monster",
+  "name": "Совомедведь",
+  "name_en": "Owlbear",
+  "size": "large",
+  "type": "monstrosity",
+  "alignment": "без мировоззрения",
+  "armor_class": { "value": 13, "note": "природный доспех" },
+  "hit_dice": { "count": 7, "die": 10 },
+  "speed": { "walk": 40 },
+  "abilities": { "str": 20, "dex": 12, "con": 17, "int": 3, "wis": 12, "cha": 7 },
+  "skills": [{ "skill": "perception" }],
+  "senses": { "darkvision": 60 },
+  "languages": [],
+  "challenge_rating": "3",
+  "traits": [
+    {
+      "name": "Острые зрение и обоняние",
+      "text": "Совомедведь совершает с преимуществом проверки Мудрости (Внимательность), полагающиеся на зрение или обоняние."
+    }
+  ],
+  "actions": [
+    {
+      "kind": "multiattack",
+      "text": "Совомедведь совершает две атаки: одну клювом и одну когтями.",
+      "plan": [
+        { "ref": "beak", "count": 1 },
+        { "ref": "claws", "count": 1 }
+      ]
+    },
+    {
+      "kind": "attack",
+      "id": "beak",
+      "name": "Клюв",
+      "attack_type": "melee_weapon",
+      "ability": "str",
+      "reach": 5,
+      "damage": [{ "dice": "1d10", "type": "piercing", "ability": "str" }]
+    },
+    {
+      "kind": "attack",
+      "id": "claws",
+      "name": "Когти",
+      "attack_type": "melee_weapon",
+      "ability": "str",
+      "reach": 5,
+      "damage": [{ "dice": "2d8", "type": "slashing", "ability": "str" }]
+    }
+  ],
+  "tactics": "Бросается на ближайшую цель и держится в ближнем бою, пока не потеряет половину хитов. Обычно не отступает: защищает логово и добычу. Охотится по запаху, поэтому прятаться в темноте от него бесполезно.",
+  "source": { "type": "official", "book": "SRD 5.1" }
+}

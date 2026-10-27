@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dnd-cards.local/schema/monster.schema.json",
+  "title": "Статблок монстра",
+  "description": "Монстр для D&D 5e (2014). Правило: вы выбираете и придумываете, приложение считает. НЕ указывайте модификаторы характеристик, бонус мастерства, бонусы навыков и спасбросков, бонус попадания, средний урон, средние хиты, пассивные чувства и опыт: всё это приложение посчитает само.",
+  "type": "object",
+  "required": [
+    "schema_version", "ruleset", "kind", "name", "size", "type", "alignment",
+    "armor_class", "hit_dice", "speed", "abilities", "challenge_rating", "source"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "$ref": "common.schema.json#/$defs/schema_version" },
+    "ruleset": { "$ref": "common.schema.json#/$defs/ruleset" },
+    "kind": { "const": "monster" },
+    "name": { "$ref": "common.schema.json#/$defs/text", "description": "Название монстра на русском." },
+    "name_en": { "type": "string", "minLength": 1, "description": "Английское название, если монстр официальный. Нужно для сверки со справочником." },
+    "size": {
+      "enum": ["tiny", "small", "medium", "large", "huge", "gargantuan"],
+      "description": "Размер: tiny крошечный, small маленький, medium средний, large большой, huge огромный, gargantuan громадный."
+    },
+    "type": {
+      "enum": [
+        "aberration", "beast", "celestial", "construct", "dragon", "elemental", "fey",
+        "fiend", "giant", "humanoid", "monstrosity", "ooze", "plant", "undead"
+      ],
+      "description": "Тип существа: aberration аберрация, beast зверь, celestial небожитель, construct конструкт, dragon дракон, elemental элементаль, fey фея, fiend исчадие, giant великан, humanoid гуманоид, monstrosity чудовище, ooze слизь, plant растение, undead нежить."
+    },
+    "subtype": { "type": "string", "minLength": 1, "description": "Теги в скобках, например «гоблиноид» или «любая раса»." },
+    "alignment": { "$ref": "common.schema.json#/$defs/text", "description": "Мировоззрение текстом, например «нейтрально-злой» или «без мировоззрения»." },
+    "armor_class": {
+      "type": "object",
+      "description": "Класс доспеха. Значение задаёт модель: у монстров оно не выводится из снаряжения.",
+      "required": ["value"],
+      "additionalProperties": false,
+      "properties": {
+        "value": { "type": "integer", "minimum": 1, "maximum": 40 },
+        "note": { "$ref": "common.schema.json#/$defs/text", "description": "Например «природный доспех» или «кожаный доспех»." }
+      }
+    },
+    "hit_dice": {
+      "type": "object",
+      "description": "Кости хитов. Среднее значение хитов приложение считает как count × (die/2 + 0,5 + модификатор Телосложения).",
+      "required": ["count", "die"],
+      "additionalProperties": false,
+      "properties": {
+        "count": { "type": "integer", "minimum": 1, "maximum": 60 },
+        "die": { "enum": [4, 6, 8, 10, 12, 20], "description": "Размер кости: по размеру существа (крошечный d4, маленький d6, средний d8, большой d10, огромный d12, громадный d20)." }
+      }
+    },
+    "hp_override": { "type": "integer", "minimum": 1, "description": "Только если хиты в книге не совпадают с формулой. Иначе опустить." },
+    "speed": { "$ref": "common.schema.json#/$defs/speed" },
+    "abilities": { "$ref": "common.schema.json#/$defs/ability_scores" },
+    "saving_throws": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "$ref": "common.schema.json#/$defs/ability" },
+      "description": "Характеристики, в спасбросках которых монстр владеет мастерством. Сам бонус не указывать."
+    },
+    "skills": {
+      "type": "array",
+      "items": { "$ref": "common.schema.json#/$defs/skill_proficiency" },
+      "description": "Навыки, в которых монстр владеет мастерством. Сам бонус не указывать."
+    },
+    "damage_vulnerabilities": { "type": "array", "uniqueItems": true, "items": { "$ref": "common.schema.json#/$defs/damage_type" } },
+    "damage_resistances": { "type": "array", "uniqueItems": true, "items": { "$ref": "common.schema.json#/$defs/damage_type" } },
+    "damage_immunities": { "type": "array", "uniqueItems": true, "items": { "$ref": "common.schema.json#/$defs/damage_type" } },
+    "damage_notes": { "$ref": "common.schema.json#/$defs/text", "description": "Оговорки, не вписывающиеся в списки, например «дробящий, колющий и рубящий урон от немагических атак»." },
+    "condition_immunities": { "type": "array", "uniqueItems": true, "items": { "$ref": "common.schema.json#/$defs/condition" } },
+    "senses": {
+      "type": "object",
+      "description": "Особые чувства в футах. Пассивную внимательность приложение считает само.",
+      "additionalProperties": false,
+      "properties": {
+        "blindsight": { "type": "integer", "minimum": 5, "multipleOf": 5 },
+        "darkvision": { "type": "integer", "minimum": 5, "multipleOf": 5 },
+        "tremorsense": { "type": "integer", "minimum": 5, "multipleOf": 5 },
+        "truesight": { "type": "integer", "minimum": 5, "multipleOf": 5 },
+        "blind_beyond": { "type": "boolean", "description": "true: слеп за пределами радиуса слепого зрения." }
+      }
+    },
+    "languages": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/text" }, "description": "Языки списком. Пустой список означает «—»." },
+    "languages_note": { "$ref": "common.schema.json#/$defs/text", "description": "Например «понимает общий, но не говорит» или «телепатия 60 фт.»." },
+    "challenge_rating": {
+      "enum": [
+        "0", "1/8", "1/4", "1/2", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12",
+        "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"
+      ],
+      "description": "Заявленная опасность (CR) строкой. Приложение сверит её с расчётом и предупредит о расхождении. Бонус мастерства и опыт считаются по ней."
+    },
+    "traits": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/trait" } },
+    "actions": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/action" } },
+    "bonus_actions": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/action" } },
+    "reactions": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/action" } },
+    "legendary_actions": {
+      "type": "object",
+      "required": ["actions"],
+      "additionalProperties": false,
+      "properties": {
+        "per_round": { "type": "integer", "minimum": 1, "maximum": 5, "default": 3, "description": "Сколько легендарных действий в раунд. По умолчанию 3." },
+        "intro": { "$ref": "common.schema.json#/$defs/text", "description": "Вводный текст. Если опущен, подставляется стандартный." },
+        "actions": { "type": "array", "minItems": 1, "items": { "$ref": "common.schema.json#/$defs/action" } }
+      }
+    },
+    "lair": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "description": { "$ref": "common.schema.json#/$defs/text" },
+        "lair_actions": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/text" } },
+        "regional_effects": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/text" } }
+      }
+    },
+    "description": { "$ref": "common.schema.json#/$defs/text", "description": "Описание внешнего вида и повадок." },
+    "tactics": { "$ref": "common.schema.json#/$defs/text", "description": "Как существо ведёт себя в бою." },
+    "dm_notes": { "$ref": "common.schema.json#/$defs/dm_notes" },
+    "source": { "$ref": "common.schema.json#/$defs/source", "description": "Откуда монстр целиком: official (SRD или книга) или custom." }
+  }
+}

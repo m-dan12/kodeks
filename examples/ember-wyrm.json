@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0",
+  "ruleset": "dnd5e-2014",
+  "kind": "monster",
+  "name": "Пепельный змей",
+  "size": "large",
+  "type": "dragon",
+  "alignment": "хаотично-злой",
+  "armor_class": { "value": 17, "note": "природный доспех" },
+  "hit_dice": { "count": 12, "die": 10 },
+  "speed": { "walk": 40, "fly": 80, "climb": 40 },
+  "abilities": { "str": 19, "dex": 12, "con": 17, "int": 12, "wis": 13, "cha": 15 },
+  "saving_throws": ["dex", "con", "wis"],
+  "skills": [{ "skill": "perception" }, { "skill": "stealth" }],
+  "damage_resistances": ["cold"],
+  "damage_immunities": ["fire"],
+  "condition_immunities": ["frightened"],
+  "senses": { "blindsight": 30, "darkvision": 120 },
+  "languages": ["драконий", "общий"],
+  "challenge_rating": "7",
+  "traits": [
+    {
+      "name": "Жар тела",
+      "text": "Существо, которое касается змея или начинает ход вплотную к нему, получает 5 (1к10) урона огнём.",
+      "source": { "type": "custom" }
+    },
+    {
+      "name": "Пепельный покров",
+      "text": "Змей совершает с преимуществом проверки Ловкости (Скрытность) в густом дыму или пепле.",
+      "usage": { "type": "at_will" },
+      "source": { "type": "custom" }
+    }
+  ],
+  "actions": [
+    {
+      "kind": "multiattack",
+      "text": "Змей совершает три атаки: одну укусом и две когтями.",
+      "plan": [
+        { "ref": "bite", "count": 1 },
+        { "ref": "claw", "count": 2 }
+      ]
+    },
+    {
+      "kind": "attack",
+      "id": "bite",
+      "name": "Укус",
+      "attack_type": "melee_weapon",
+      "ability": "str",
+      "reach": 10,
+      "damage": [
+        { "dice": "2d10", "type": "piercing", "ability": "str" },
+        { "dice": "1d6", "type": "fire" }
+      ]
+    },
+    {
+      "kind": "attack",
+      "id": "claw",
+      "name": "Коготь",
+      "attack_type": "melee_weapon",
+      "ability": "str",
+      "reach": 5,
+      "damage": [{ "dice": "2d6", "type": "slashing", "ability": "str" }]
+    },
+    {
+      "kind": "save",
+      "id": "ash_breath",
+      "name": "Пепельное дыхание",
+      "area": "конус 30 фт.",
+      "save_ability": "dex",
+      "dc": { "mode": "auto", "ability": "con" },
+      "damage": [{ "dice": "12d6", "type": "fire" }],
+      "on_success": "half",
+      "effect_text": "Цели, провалившие спасбросок, становятся ослеплёнными до конца своего следующего хода.",
+      "usage": { "type": "recharge", "recharge_min": 5 }
+    }
+  ],
+  "reactions": [
+    {
+      "kind": "text",
+      "name": "Огненный отпор",
+      "text": "Когда змей получает урон от существа в пределах 5 футов, он наносит ему 7 (2к6) урона огнём."
+    }
+  ],
+  "legendary_actions": {
+    "per_round": 3,
+    "actions": [
+      { "kind": "text", "name": "Обнаружение", "text": "Змей совершает проверку Мудрости (Внимательность)." },
+      {
+        "kind": "attack",
+        "id": "tail",
+        "name": "Удар хвостом",
+        "attack_type": "melee_weapon",
+        "ability": "str",
+        "reach": 15,
+        "damage": [{ "dice": "2d8", "type": "bludgeoning", "ability": "str" }]
+      },
+      { "kind": "text", "name": "Вспышка жара", "text": "Змей выпускает волну жара: все существа в пределах 10 футов получают 7 (2к6) урона огнём.", "legendary_cost": 2 }
+    ]
+  },
+  "tactics": "Атакует с воздуха, затем опускается в дым. Дыхание использует, когда цели собираются в группу.",
+  "dm_notes": [
+    { "kind": "doubt", "text": "Не уверен, что ослепление от дыхания не слишком сильное для CR 7: возможно, стоит ограничить одним ходом." }
+  ],
+  "source": { "type": "custom", "note": "придуманный монстр" }
+}

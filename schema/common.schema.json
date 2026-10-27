@@ -1,0 +1,276 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dnd-cards.local/schema/common.schema.json",
+  "title": "Общие определения",
+  "description": "Типы, которые используются и в статблоке монстра, и в карточке NPC.",
+  "$defs": {
+    "schema_version": {
+      "const": "1.0",
+      "description": "Версия схемы. Менять нельзя."
+    },
+    "ruleset": {
+      "const": "dnd5e-2014",
+      "description": "Редакция правил. Сейчас поддерживается только D&D 5e (2014)."
+    },
+    "text": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Текст на русском языке. Пустые строки не допускаются: если текста нет, поле нужно опустить."
+    },
+    "ability": {
+      "enum": ["str", "dex", "con", "int", "wis", "cha"],
+      "description": "Характеристика: str Сила, dex Ловкость, con Телосложение, int Интеллект, wis Мудрость, cha Харизма."
+    },
+    "ability_scores": {
+      "type": "object",
+      "description": "Итоговые значения характеристик (с учётом расы и прочих бонусов). Модификаторы приложение считает само.",
+      "required": ["str", "dex", "con", "int", "wis", "cha"],
+      "additionalProperties": false,
+      "properties": {
+        "str": { "type": "integer", "minimum": 1, "maximum": 30 },
+        "dex": { "type": "integer", "minimum": 1, "maximum": 30 },
+        "con": { "type": "integer", "minimum": 1, "maximum": 30 },
+        "int": { "type": "integer", "minimum": 1, "maximum": 30 },
+        "wis": { "type": "integer", "minimum": 1, "maximum": 30 },
+        "cha": { "type": "integer", "minimum": 1, "maximum": 30 }
+      }
+    },
+    "skill": {
+      "enum": [
+        "acrobatics", "animal_handling", "arcana", "athletics", "deception", "history",
+        "insight", "intimidation", "investigation", "medicine", "nature", "perception",
+        "performance", "persuasion", "religion", "sleight_of_hand", "stealth", "survival"
+      ],
+      "description": "Навык: acrobatics Акробатика, animal_handling Уход за животными, arcana Магия, athletics Атлетика, deception Обман, history История, insight Проницательность, intimidation Запугивание, investigation Анализ, medicine Медицина, nature Природа, perception Внимательность, performance Выступление, persuasion Убеждение, religion Религия, sleight_of_hand Ловкость рук, stealth Скрытность, survival Выживание."
+    },
+    "skill_proficiency": {
+      "type": "object",
+      "required": ["skill"],
+      "additionalProperties": false,
+      "properties": {
+        "skill": { "$ref": "#/$defs/skill" },
+        "expertise": { "type": "boolean", "description": "true: удвоенный бонус мастерства (компетентность)." }
+      }
+    },
+    "damage_type": {
+      "enum": [
+        "acid", "bludgeoning", "cold", "fire", "force", "lightning", "necrotic",
+        "piercing", "poison", "psychic", "radiant", "slashing", "thunder"
+      ],
+      "description": "Тип урона: acid кислота, bludgeoning дробящий, cold холод, fire огонь, force силовое поле, lightning электричество, necrotic некротическая энергия, piercing колющий, poison яд, psychic психическая энергия, radiant излучение, slashing рубящий, thunder звук."
+    },
+    "condition": {
+      "enum": [
+        "blinded", "charmed", "deafened", "exhaustion", "frightened", "grappled", "incapacitated",
+        "invisible", "paralyzed", "petrified", "poisoned", "prone", "restrained", "stunned", "unconscious"
+      ],
+      "description": "Состояние: blinded ослеплённый, charmed очарованный, deafened оглохший, exhaustion истощение, frightened напуганный, grappled схваченный, incapacitated недееспособный, invisible невидимый, paralyzed парализованный, petrified окаменевший, poisoned отравленный, prone лежащий ничком, restrained опутанный, stunned ошеломлённый, unconscious без сознания."
+    },
+    "dice": {
+      "type": "string",
+      "pattern": "^[1-9][0-9]*d(4|6|8|10|12|20|100)$",
+      "description": "Кости урона в формате «2d8». Без модификатора: модификатор задаётся отдельно полями ability и bonus."
+    },
+    "speed": {
+      "type": "object",
+      "description": "Скорости в футах (кратно 5).",
+      "additionalProperties": false,
+      "properties": {
+        "walk": { "type": "integer", "minimum": 0, "multipleOf": 5 },
+        "burrow": { "type": "integer", "minimum": 5, "multipleOf": 5 },
+        "climb": { "type": "integer", "minimum": 5, "multipleOf": 5 },
+        "fly": { "type": "integer", "minimum": 5, "multipleOf": 5 },
+        "swim": { "type": "integer", "minimum": 5, "multipleOf": 5 },
+        "hover": { "type": "boolean", "description": "true: существо может парить." }
+      }
+    },
+    "source": {
+      "type": "object",
+      "description": "Откуда взято. Нужно, чтобы отличать официальный контент от выдуманного.",
+      "required": ["type"],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "enum": ["official", "custom"],
+          "description": "official: взято из официальной книги; custom: придумано или изменено."
+        },
+        "book": { "type": "string", "minLength": 1, "description": "Название книги, например «SRD 5.1» или «Руководство игрока». Обязательно для official." },
+        "note": { "type": "string", "minLength": 1, "description": "Пояснение, например «изменено: урон увеличен»." }
+      },
+      "if": { "properties": { "type": { "const": "official" } }, "required": ["type"] },
+      "then": { "required": ["book"] }
+    },
+    "usage": {
+      "type": "object",
+      "description": "Ограничение на использование способности.",
+      "required": ["type"],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "enum": ["at_will", "per_day", "per_rest", "recharge"],
+          "description": "at_will: без ограничений; per_day: N раз в сутки; per_rest: N раз до отдыха; recharge: перезарядка по кубу d6."
+        },
+        "times": { "type": "integer", "minimum": 1, "description": "Сколько раз. Для per_day и per_rest." },
+        "rest": { "enum": ["short", "long"], "description": "short: короткий отдых; long: продолжительный. Для per_rest." },
+        "recharge_min": { "type": "integer", "minimum": 2, "maximum": 6, "description": "Минимальное значение на d6 для перезарядки: 5 означает «перезарядка 5–6». Для recharge." }
+      },
+      "allOf": [
+        { "if": { "properties": { "type": { "const": "per_day" } }, "required": ["type"] }, "then": { "required": ["times"] } },
+        { "if": { "properties": { "type": { "const": "per_rest" } }, "required": ["type"] }, "then": { "required": ["times", "rest"] } },
+        { "if": { "properties": { "type": { "const": "recharge" } }, "required": ["type"] }, "then": { "required": ["recharge_min"] } }
+      ]
+    },
+    "damage_part": {
+      "type": "object",
+      "description": "Одна составляющая урона.",
+      "required": ["dice", "type"],
+      "additionalProperties": false,
+      "properties": {
+        "dice": { "$ref": "#/$defs/dice" },
+        "type": { "$ref": "#/$defs/damage_type" },
+        "ability": { "$ref": "#/$defs/ability", "description": "Добавить модификатор этой характеристики к урону. Обычно та же, что в атаке. Опустить, если модификатор не добавляется." },
+        "bonus": { "type": "integer", "description": "Фиксированная добавка к урону (магическое оружие, боевой стиль)." },
+        "scales_with_level": { "const": "cantrip", "description": "Только для заговоров: число костей растёт на уровнях 5, 11 и 17 по общему уровню персонажа. Приложение считает рост само." }
+      }
+    },
+    "note_kind": {
+      "enum": ["doubt", "tactics", "lore", "balance", "other"],
+      "description": "doubt: сомнение модели; tactics: тактика; lore: история; balance: замечание о балансе."
+    },
+    "dm_notes": {
+      "type": "array",
+      "description": "Заметки для мастера. Сюда модель обязана записывать всё, в чём не уверена: формулировки заклинаний, баланс, расчёты.",
+      "items": {
+        "type": "object",
+        "required": ["kind", "text"],
+        "additionalProperties": false,
+        "properties": {
+          "kind": { "$ref": "#/$defs/note_kind" },
+          "text": { "$ref": "#/$defs/text" }
+        }
+      }
+    },
+    "action": {
+      "description": "Действие (или бонусное действие, реакция, легендарное действие). Тип определяется полем kind.",
+      "type": "object",
+      "discriminator": { "propertyName": "kind" },
+      "oneOf": [
+        { "$ref": "#/$defs/action_attack" },
+        { "$ref": "#/$defs/action_save" },
+        { "$ref": "#/$defs/action_multiattack" },
+        { "$ref": "#/$defs/action_text" }
+      ]
+    },
+    "action_attack": {
+      "type": "object",
+      "description": "Атака с броском попадания. Бонус попадания и средний урон считает приложение.",
+      "required": ["kind", "id", "name", "attack_type", "ability", "damage"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": { "const": "attack" },
+        "id": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$", "description": "Короткий идентификатор латиницей, например «beak». На него ссылается мультиатака." },
+        "name": { "$ref": "#/$defs/text" },
+        "attack_type": {
+          "enum": ["melee_weapon", "ranged_weapon", "melee_spell", "ranged_spell"],
+          "description": "Рукопашная или дальнобойная атака оружием или заклинанием."
+        },
+        "ability": { "$ref": "#/$defs/ability", "description": "Характеристика, от которой считается бонус попадания." },
+        "proficient": { "type": "boolean", "default": true, "description": "Прибавлять ли бонус мастерства. По умолчанию true." },
+        "to_hit_bonus": { "type": "integer", "description": "Дополнительный бонус попадания (магическое оружие)." },
+        "reach": { "type": "integer", "minimum": 5, "multipleOf": 5, "description": "Досягаемость в футах для рукопашной атаки." },
+        "range_normal": { "type": "integer", "minimum": 5, "description": "Обычная дистанция в футах для дальнобойной атаки." },
+        "range_long": { "type": "integer", "minimum": 5, "description": "Максимальная дистанция в футах." },
+        "targets": { "$ref": "#/$defs/text", "description": "Например «одна цель». Если опущено, подставляется «одна цель»." },
+        "damage": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/damage_part" } },
+        "on_hit_text": { "$ref": "#/$defs/text", "description": "Дополнительный эффект при попадании: схватывание, яд и т. п. Урон сюда не писать." },
+        "usage": { "$ref": "#/$defs/usage" },
+        "legendary_cost": { "type": "integer", "minimum": 1, "maximum": 3, "description": "Только для легендарных действий: стоимость в действиях." },
+        "source": { "$ref": "#/$defs/source" }
+      }
+    },
+    "action_save": {
+      "type": "object",
+      "description": "Эффект со спасброском цели (дыхание, заклинание-область, яд).",
+      "required": ["kind", "id", "name", "save_ability", "dc"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": { "const": "save" },
+        "id": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+        "name": { "$ref": "#/$defs/text" },
+        "area": { "$ref": "#/$defs/text", "description": "Форма области, например «конус 15 фт.»." },
+        "save_ability": { "$ref": "#/$defs/ability", "description": "Характеристика спасброска цели." },
+        "dc": {
+          "type": "object",
+          "required": ["mode"],
+          "additionalProperties": false,
+          "properties": {
+            "mode": { "enum": ["auto", "fixed"], "description": "auto: 8 + мастерство + модификатор характеристики; fixed: число из книги." },
+            "ability": { "$ref": "#/$defs/ability", "description": "Для auto: от какой характеристики считать Сл." },
+            "value": { "type": "integer", "minimum": 5, "maximum": 30, "description": "Для fixed: готовое значение." }
+          },
+          "allOf": [
+            { "if": { "properties": { "mode": { "const": "auto" } }, "required": ["mode"] }, "then": { "required": ["ability"] } },
+            { "if": { "properties": { "mode": { "const": "fixed" } }, "required": ["mode"] }, "then": { "required": ["value"] } }
+          ]
+        },
+        "damage": { "type": "array", "items": { "$ref": "#/$defs/damage_part" } },
+        "on_success": { "enum": ["half", "none", "special"], "description": "half: половина урона при успехе; none: урона нет; special: см. effect_text." },
+        "effect_text": { "$ref": "#/$defs/text", "description": "Описание эффекта при провале, состояния и прочее." },
+        "usage": { "$ref": "#/$defs/usage" },
+        "legendary_cost": { "type": "integer", "minimum": 1, "maximum": 3 },
+        "source": { "$ref": "#/$defs/source" }
+      }
+    },
+    "action_multiattack": {
+      "type": "object",
+      "description": "Мультиатака. Список plan нужен приложению, чтобы посчитать урон за раунд; text выводится на карточке.",
+      "required": ["kind", "text", "plan"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": { "const": "multiattack" },
+        "name": { "$ref": "#/$defs/text", "description": "Если опущено, подставляется «Мультиатака»." },
+        "text": { "$ref": "#/$defs/text" },
+        "plan": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["ref", "count"],
+            "additionalProperties": false,
+            "properties": {
+              "ref": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$", "description": "id атаки из списка действий." },
+              "count": { "type": "integer", "minimum": 1 }
+            }
+          }
+        },
+        "source": { "$ref": "#/$defs/source" }
+      }
+    },
+    "action_text": {
+      "type": "object",
+      "description": "Любое действие без структурной механики: описание текстом.",
+      "required": ["kind", "name", "text"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": { "const": "text" },
+        "name": { "$ref": "#/$defs/text" },
+        "text": { "$ref": "#/$defs/text" },
+        "usage": { "$ref": "#/$defs/usage" },
+        "legendary_cost": { "type": "integer", "minimum": 1, "maximum": 3 },
+        "source": { "$ref": "#/$defs/source" }
+      }
+    },
+    "trait": {
+      "type": "object",
+      "description": "Пассивная особенность монстра.",
+      "required": ["name", "text"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "$ref": "#/$defs/text" },
+        "text": { "$ref": "#/$defs/text" },
+        "usage": { "$ref": "#/$defs/usage" },
+        "source": { "$ref": "#/$defs/source" }
+      }
+    }
+  }
+}
