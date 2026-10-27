@@ -424,7 +424,7 @@ export function App() {
       {update && (
         <Modal title="Доступно обновление" onClose={() => setUpdate(null)} width={520}>
           <p className="confirm-text">
-            Вышла версия <b>{update.version}</b>, у вас {APP_VERSION}.
+            Вышла версия <b>{update.version}</b>, у вас {update.current}.
           </p>
           {update.notes && <pre className="upd-notes">{update.notes.slice(0, 700)}</pre>}
           <div className="modal-foot">

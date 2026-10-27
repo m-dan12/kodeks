@@ -4,6 +4,8 @@ import { APP_VERSION, REPO, cmpVersion, pickAsset, type ReleaseAsset } from "./v
 
 export interface Update {
   version: string;
+  /** Установленная версия, с которой сравнивали. */
+  current: string;
   notes: string;
   /** Страница релиза: запасной вариант, если файла для этой платформы нет. */
   page: string;
@@ -46,6 +48,7 @@ export async function checkUpdate(current: string = APP_VERSION): Promise<Update
   const p = platform();
   return {
     version: r.tag_name.replace(/^v/i, ""),
+    current,
     notes: (r.body ?? "").trim(),
     page: r.html_url,
     file: p ? pickAsset(r.assets ?? [], p)?.browser_download_url : undefined,
